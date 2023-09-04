@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:viammundi_frontend/src/ui/pages/homescreen.dart';
+import 'package:viammundi_frontend/src/utils/colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
@@ -10,6 +11,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: AppColors.primaryColor,
       title: const Text('ViamMundi'),
       actions: <Widget>[
         IconButton(

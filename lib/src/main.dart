@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:viammundi_frontend/src/ui/widgets/map.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const Maps());
 }
 
 class MainApp extends StatelessWidget {

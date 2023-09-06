@@ -20,10 +20,16 @@ class _BottomNavbarState extends State<BottomNavbar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      unselectedItemColor: AppColors.white,
+      backgroundColor: AppColors.primaryColor,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      elevation: 0,
+      iconSize: 30,
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
-          label: 'Perfil',
+          label: 'Profile',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.add),
@@ -35,7 +41,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
         ),
       ],
       currentIndex: _selectedIndex,
-      selectedItemColor: AppColors.primaryColor,
+      selectedItemColor: AppColors.white,
       onTap: _onItemTapped,
     );
   }

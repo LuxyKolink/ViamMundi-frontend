@@ -13,7 +13,7 @@ class AppTheme {
       ),
       textTheme: const TextTheme(
         titleLarge: TextStyle(
-            color: AppColors.black,
+            color: AppColors.primaryColor,
             fontSize: AppFonts.fontSizeLarge,
             fontWeight: FontWeight.bold),
       ),

@@ -7,7 +7,7 @@ class MapController extends ChangeNotifier{
 
   Set<Marker> get markers => _markers.values.toSet();
 
-  final initialCameraPosition = CameraPosition(target: LatLng(8.4787483,-69.9458963), zoom: 14);
+  final initialCameraPosition = const CameraPosition(target: LatLng(8.4787483,-69.9458963), zoom: 14);
 
   void onTap (LatLng position){
     final markerId = MarkerId(_markers.length.toString());

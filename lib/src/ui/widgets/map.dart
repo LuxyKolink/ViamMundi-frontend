@@ -11,7 +11,7 @@ class Maps extends StatefulWidget {
 class _MapsState extends State<Maps> {
   late GoogleMapController mapController;
 
-  final _initialCameraPosition = CameraPosition(target: LatLng(0,0), zoom: 14);
+  final _initialCameraPosition = const CameraPosition(target: LatLng(0,0), zoom: 14);
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;

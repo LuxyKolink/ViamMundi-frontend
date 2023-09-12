@@ -25,7 +25,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
       showSelectedLabels: false,
       showUnselectedLabels: false,
       elevation: 0,
-      iconSize: 30,
+      iconSize: 20,
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.person),

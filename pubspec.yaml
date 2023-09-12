@@ -19,4 +19,4 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - lib/assets/profile_icon.png
+    - lib/assets/icons/profile_icon.png

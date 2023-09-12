@@ -1,6 +1,12 @@
-class AppRoutes {
-  static const String home = '/';
-  static const String profile = '/profile';
-  static const String settings = '/settings';
-  static const String details = '/details';
+import 'package:flutter/material.dart';
+import 'package:viammundi_frontend/src/ui/pages/browser.dart';
+import 'package:viammundi_frontend/src/ui/pages/homescreen.dart';
+import 'package:viammundi_frontend/src/ui/pages/profile.dart';
+
+Map<String, WidgetBuilder> getRoutes() {
+  return {
+    '/home': (context) => const HomeScreen(),
+    '/profile': (context) => const ProfilePage(),
+    '/browser': (context) => const BrowserPage()
+  };
 }

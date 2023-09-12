@@ -13,7 +13,7 @@ class AppSpacing {
 class AppIcons {
   static const String homeIcon = 'assets/icons/home.png';
   static const String settingsIcon = 'assets/icons/settings.png';
-  static const String profileIcon = 'lib/assets/profile_icon.png';
+  static const String profileIcon = 'lib/assets/icons/profile_icon.png';
 }
 
 class AppText {

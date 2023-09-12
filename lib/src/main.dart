@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:viammundi_frontend/src/ui/widgets/map.dart';
+import 'package:viammundi_frontend/src/ui/widgets/mapown.dart';
 
 void main() {
-  runApp(const Maps());
+  runApp( MapOwnState());
 }
 
 class MainApp extends StatelessWidget {

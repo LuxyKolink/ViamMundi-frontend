@@ -15,7 +15,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: const Text('ViamMundi'),
       actions: <Widget>[
         IconButton(
-          icon: const Icon(Icons.question_mark),
+          icon: const Icon(Icons.search),
           tooltip: 'Tip',
           onPressed: () {
             ScaffoldMessenger.of(context).showSnackBar(

@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:viammundi_frontend/src/utils/colors.dart';
 
-class BottomNavbar extends StatefulWidget {
-  const BottomNavbar({super.key});
+class BottomNavBar extends StatelessWidget {
+  final int selectedIndex;
+  final Function(int) onItemTapped;
 
-  @override
-  State<BottomNavbar> createState() => _BottomNavbarState();
-}
-
-class _BottomNavbarState extends State<BottomNavbar> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  const BottomNavBar(
+      {super.key, required this.onItemTapped, required this.selectedIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +19,8 @@ class _BottomNavbarState extends State<BottomNavbar> {
       iconSize: 20,
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'Profile',
+          icon: Icon(Icons.home),
+          label: 'Home',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.add),
@@ -40,9 +31,9 @@ class _BottomNavbarState extends State<BottomNavbar> {
           label: 'Buscar',
         ),
       ],
-      currentIndex: _selectedIndex,
+      currentIndex: selectedIndex,
       selectedItemColor: AppColors.white,
-      onTap: _onItemTapped,
+      onTap: onItemTapped,
     );
   }
 }

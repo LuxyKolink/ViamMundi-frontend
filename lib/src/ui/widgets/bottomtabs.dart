@@ -27,7 +27,7 @@ class BottomNavBar extends StatelessWidget {
           label: 'Crear',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.search),
+          icon: Icon(Icons.person),
           label: 'Buscar',
         ),
       ],

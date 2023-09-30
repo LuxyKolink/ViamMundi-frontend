@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:viammundi_frontend/src/ui/pages/browser.dart';
+import 'package:viammundi_frontend/src/ui/pages/create_route.dart';
 import 'package:viammundi_frontend/src/ui/pages/feed.dart';
 import 'package:viammundi_frontend/src/ui/pages/profile.dart';
 
-import 'package:viammundi_frontend/src/ui/widgets/appbar.dart';
+// import 'package:viammundi_frontend/src/ui/widgets/appbar.dart';
 import 'package:viammundi_frontend/src/ui/widgets/bottomtabs.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
       case 0:
         page = const FeedPage();
       case 1:
-        page = const BrowserPage();
+        page = const CreateRoutePage();
       case 2:
         page = const ProfilePage();
       default:
@@ -37,7 +37,6 @@ class _HomeScreenState extends State<HomeScreen> {
     }
 
     return Scaffold(
-      appBar: const CustomAppBar(),
       body: page,
       bottomNavigationBar: BottomNavBar(
           onItemTapped: _onItemTapped, selectedIndex: _selectedIndex),

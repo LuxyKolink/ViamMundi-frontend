@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:viammundi_frontend/src/ui/pages/homescreen.dart';
 // import 'package:viammundi_frontend/src/utils/colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  final bool showTabBar;
+
+  const CustomAppBar({super.key, this.showTabBar = false});
 
   @override
-  Size get preferredSize => const Size.fromHeight(50);
+  Size get preferredSize =>
+      showTabBar ? const Size.fromHeight(100) : const Size.fromHeight(50);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: const Text('ViamMundi'),
       actions: <Widget>[
         IconButton(
-          icon: const Icon(Icons.search),
+          icon: const Icon(Icons.add_alert),
           tooltip: 'Tip',
           onPressed: () {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -23,17 +25,23 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           },
         ),
         IconButton(
-          icon: const Icon(Icons.arrow_back),
-          tooltip: 'Regresar a la página principal',
+          icon: const Icon(Icons.search),
+          tooltip: 'Busqueda',
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute<void>(
-              builder: (BuildContext context) {
-                return const HomeScreen();
-              },
-            ));
+            Navigator.pushNamed(context, '/browser');
           },
         ),
       ],
+      bottom: showTabBar
+          ? const TabBar(
+              tabs: <Widget>[
+                Tab(icon: Icon(Icons.thumb_up)),
+                Tab(icon: Icon(Icons.map)),
+                Tab(icon: Icon(Icons.money)),
+                Tab(icon: Icon(Icons.timer))
+              ],
+            )
+          : null, // Si showTabBar es falso, no muestra TabBar
     );
   }
 }

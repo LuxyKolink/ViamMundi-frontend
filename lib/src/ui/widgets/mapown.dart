@@ -21,6 +21,9 @@ class MapOwnState extends StatelessWidget {
           myLocationButtonEnabled: true,
           mapType: MapType.terrain, 
           markers: controller.markers,
+          polylines: {
+            Polyline(points: controller.pointroutes, polylineId: const PolylineId("ruta cosa"))
+          },
           //zoomGesturesEnabled: false, gestion de gestos
           //zoomControlsEnabled: false, control de zoom
          //compassEnabled: false, esconder compas

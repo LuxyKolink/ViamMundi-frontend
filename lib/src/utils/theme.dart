@@ -9,12 +9,12 @@ class AppTheme {
       appBarTheme: const AppBarTheme(
         color: AppColors.primaryColor,
         titleTextStyle:
-            TextStyle(color: AppColors.white, fontSize: AppFonts.fontSizeLarge),
+            TextStyle(color: AppColors.white, fontSize: FontSize.fontSizeLarge),
       ),
       textTheme: const TextTheme(
         titleLarge: TextStyle(
             color: AppColors.primaryColor,
-            fontSize: AppFonts.fontSizeLarge,
+            fontSize: FontSize.fontSizeLarge,
             fontWeight: FontWeight.bold),
       ),
       buttonTheme: const ButtonThemeData(

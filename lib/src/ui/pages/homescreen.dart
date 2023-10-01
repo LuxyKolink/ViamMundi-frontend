@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:viammundi_frontend/src/ui/pages/create_route.dart';
 import 'package:viammundi_frontend/src/ui/pages/feed.dart';
-import 'package:viammundi_frontend/src/ui/pages/profile.dart';
+import 'package:viammundi_frontend/src/ui/pages/login.dart';
+// import 'package:viammundi_frontend/src/ui/pages/profile.dart';
 
 // import 'package:viammundi_frontend/src/ui/widgets/appbar.dart';
 import 'package:viammundi_frontend/src/ui/widgets/bottomtabs.dart';
@@ -31,7 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
       case 1:
         page = const CreateRoutePage();
       case 2:
-        page = const ProfilePage();
+        // page = const ProfilePage();
+        page = const LoginPage();
       default:
         throw UnimplementedError('no widget for $_selectedIndex');
     }

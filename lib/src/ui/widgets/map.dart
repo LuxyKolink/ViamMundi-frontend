@@ -5,14 +5,13 @@ class Maps extends StatefulWidget {
   const Maps({Key? key}) : super(key: key);
 
   @override
-  State<Maps> createState() => _MapsState();
+  _MapsState createState() => _MapsState();
 }
 
 class _MapsState extends State<Maps> {
   late GoogleMapController mapController;
 
-  final _initialCameraPosition =
-      const CameraPosition(target: LatLng(0, 0), zoom: 14);
+  final _initialCameraPosition = const CameraPosition(target: LatLng(0,0), zoom: 14);
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -22,8 +21,8 @@ class _MapsState extends State<Maps> {
   Widget build(BuildContext context) {
     return FractionallySizedBox(
       widthFactor: 1.0,
-      heightFactor: 0.25,
-      child: GoogleMap(initialCameraPosition: _initialCameraPosition),
-    );
+       heightFactor: 0.25,
+        child: GoogleMap(initialCameraPosition: _initialCameraPosition),
+      );
   }
 }

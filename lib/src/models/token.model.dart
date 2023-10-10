@@ -1,7 +1,13 @@
-class RegisterModel {
-  final String tokenJwt;
+class TokenJWTModel {
+  final String tokenJWT;
 
-  const RegisterModel({
-    required this.tokenJwt,
+  const TokenJWTModel({
+    required this.tokenJWT,
   });
+
+  factory TokenJWTModel.fromJson(Map<String, dynamic> json) {
+    return TokenJWTModel(
+      tokenJWT: json['tokenJWT'],
+    );
+  }
 }

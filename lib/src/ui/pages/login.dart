@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:viammundi_frontend/src/models/login.model.dart';
+import 'package:viammundi_frontend/src/models/token.model.dart';
+import 'package:viammundi_frontend/src/models/users.model.dart';
+import 'package:viammundi_frontend/src/services/api.client.dart';
 import 'package:viammundi_frontend/src/ui/widgets/appbar.dart';
 import 'package:viammundi_frontend/src/ui/widgets/button.dart';
 import 'package:viammundi_frontend/src/ui/widgets/text.dart';
@@ -15,8 +19,53 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _userTextController = TextEditingController();
-  final _passwordTextController = TextEditingController();
+  late final TextEditingController _username;
+  late final TextEditingController _password;
+  TokenJWTModel? _tokenJWTModel;
+
+  String? errorMesagge = "";
+
+  Future<void> _login() async {
+    final email = _username.text;
+    final password = _password.text;
+
+    try {
+      final result = await login(email, password);
+      print('hola');
+      print(result.tokenJWT);
+      setState(() {
+        _tokenJWTModel = result;
+      });
+      Navigator.pushNamed(context, '/home');
+    } catch (e) {
+      setState(() {
+        errorMesagge = "credenciales incorrectas";
+      });
+      // Manejar errores aquí, por ejemplo, mostrar un mensaje de error.
+      print('Error al iniciar sesión: $e');
+    }
+  }
+
+  List<UsersModel> users = [];
+
+  void _getUsers() {
+    users = UsersModel.getUsers();
+  }
+
+  @override
+  void initState() {
+    _getUsers();
+    _username = TextEditingController();
+    _password = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _username.dispose();
+    _password.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,14 +87,14 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: CustomTextFormField(
-                  controller: _userTextController,
+                  controller: _username,
                   labelText: 'Usuario',
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: CustomTextFormField(
-                  controller: _passwordTextController,
+                  controller: _password,
                   labelText: 'Contraseña',
                 ),
               ),
@@ -60,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: CustomTextButton(
                   text: 'Registrarse',
                   onPressed: () {
-                    Navigator.pushNamed(context, 'register');
+                    Navigator.pushNamed(context, '/register');
                   },
                 ),
               ),
@@ -73,20 +122,12 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Padding(
                 padding: const EdgeInsets.all(4),
-                child: Button(
-                  text: 'Entrar',
-                  onPressed: () {},
-                ),
+                child: Button(text: 'Entrar', onPressed: _login),
               ),
-              Padding(
-                padding: const EdgeInsets.all(4),
-                child: CustomTextButton(
-                  text: 'Regresar',
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
+              if (_tokenJWTModel == null)
+                Padding(
+                    padding: const EdgeInsets.all(4),
+                    child: Text('$errorMesagge')),
             ],
           ),
         ),

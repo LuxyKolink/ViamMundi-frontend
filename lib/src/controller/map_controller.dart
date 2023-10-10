@@ -6,11 +6,12 @@ import 'package:geolocator/geolocator.dart';
 class MapController extends ChangeNotifier {
   MapController() {
     
-    final LocationSettings locationSettings = LocationSettings(
+    const LocationSettings locationSettings = LocationSettings(
       accuracy: LocationAccuracy.high,
       distanceFilter: 100,
     );
 
+    // ignore: unused_local_variable
     StreamSubscription<Position> positionStream =
         Geolocator.getPositionStream(locationSettings: locationSettings)
             .listen((Position? position) {

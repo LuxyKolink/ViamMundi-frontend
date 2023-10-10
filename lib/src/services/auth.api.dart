@@ -1,8 +1,9 @@
-import 'dart:convert';
+// import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
+// ignore: camel_case_types
 class authServices {
   Future<http.Response> test() async {
     if (kDebugMode) {

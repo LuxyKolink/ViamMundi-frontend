@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:viammundi_frontend/src/utils/colors.dart';
+import 'package:viammundi_frontend/shared/resources/colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool showTabBar;
@@ -34,6 +34,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ],
       bottom: showTabBar
           ? const TabBar(
+              labelColor: AppColors.white,
               tabs: <Widget>[
                 Tab(icon: Icon(Icons.thumb_up)),
                 Tab(icon: Icon(Icons.map)),

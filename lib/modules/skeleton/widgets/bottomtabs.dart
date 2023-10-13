@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:viammundi_frontend/shared/resources/colors.dart';
+import '../../../shared/resources/colors.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int selectedIndex;

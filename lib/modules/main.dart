@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
+import '../modules/skeleton/skeleton.dart';
 
-import 'package:viammundi_frontend/config/routes/routes.dart';
-import 'package:viammundi_frontend/config/theme/theme.dart';
-
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class Home extends StatelessWidget {
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ViaMundi',
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
-      initialRoute: '/home',
-      routes: getRoutes(),
-    );
+    return const Skeleton();
   }
 }

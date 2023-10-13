@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:viammundi_frontend/shared/resources/colors.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final TextEditingController controller;
@@ -12,7 +13,11 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       decoration: InputDecoration(
-        border: const OutlineInputBorder(),
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        fillColor: AppColors.primaryColor.withOpacity(0.8),
+        filled: true,
+        border: const OutlineInputBorder(
+            borderSide: BorderSide(color: AppColors.primaryColor)),
         labelText: labelText,
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../route/pages/create_route.dart';
+import '../route/presentation/pages/create_route.dart';
 import '../feed/pages/feed.dart';
-import '../profile/pages/login.dart';
+import '../profile/presentation/pages/login.dart';
 import '../skeleton/widgets/bottomtabs.dart';
 
 class Skeleton extends StatefulWidget {

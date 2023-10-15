@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:viammundi_frontend/modules/browser/pages/browser.dart';
 import 'package:viammundi_frontend/modules/main.dart';
-import 'package:viammundi_frontend/modules/route/pages/create_route.dart';
+import 'package:viammundi_frontend/modules/route/presentation/pages/create_route.dart';
 import 'package:viammundi_frontend/modules/feed/pages/feed.dart';
-import 'package:viammundi_frontend/modules/profile/pages/login.dart';
-import 'package:viammundi_frontend/modules/profile/pages/profile.dart';
-import 'package:viammundi_frontend/modules/profile/pages/register.dart';
-import 'package:viammundi_frontend/modules/route/widgets/mapown.dart';
+import 'package:viammundi_frontend/modules/profile/presentation/pages/login.dart';
+import 'package:viammundi_frontend/modules/profile/presentation/pages/profile.dart';
+import 'package:viammundi_frontend/modules/profile/presentation/pages/register.dart';
+import 'package:viammundi_frontend/modules/route/presentation/widgets/mapown.dart';
 
 Map<String, WidgetBuilder> getRoutes() {
   return {

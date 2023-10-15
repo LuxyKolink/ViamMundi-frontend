@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 // import 'package:viammundi_frontend/src/models/login.model.dart';
-import 'package:viammundi_frontend/modules/profile/models/token.model.dart';
+import 'package:viammundi_frontend/modules/profile/data/models/token.model.dart';
 
 Future<TokenJWTModel> login(String email, String password) async {
   final url = Uri.http('192.168.1.10:4000', '/auth/login');

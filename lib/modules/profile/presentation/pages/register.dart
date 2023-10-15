@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../skeleton/widgets/appbar.dart';
-import '../../../shared/widgets/button.dart';
-import '../../../shared/widgets/text.dart';
-import '../../../shared/widgets/textbutton.dart';
-import '../../../shared/widgets/textformfield.dart';
+import '../../../skeleton/widgets/appbar.dart';
+import '../../../../shared/widgets/button.dart';
+import '../../../../shared/widgets/text.dart';
+import '../../../../shared/widgets/textbutton.dart';
+import '../../../../shared/widgets/textformfield.dart';
 import 'package:viammundi_frontend/shared/resources/colors.dart';
 import 'package:viammundi_frontend/shared/constants/constants.dart';
 

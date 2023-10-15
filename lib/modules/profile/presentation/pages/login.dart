@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:viammundi_frontend/modules/profile/models/token.model.dart';
-import 'package:viammundi_frontend/modules/profile/models/users.model.dart';
-import 'package:viammundi_frontend/modules/profile/services/api.client.dart';
-import '../../skeleton/widgets/appbar.dart';
-import '../../../shared/widgets/button.dart';
-import '../../../shared/widgets/text.dart';
-import '../../../shared/widgets/textbutton.dart';
-import '../../../shared/widgets/textformfield.dart';
+import 'package:viammundi_frontend/modules/profile/data/models/token.model.dart';
+import 'package:viammundi_frontend/modules/profile/data/models/users.model.dart';
+import 'package:viammundi_frontend/modules/profile/data/services/api.client.dart';
+import '../../../skeleton/widgets/appbar.dart';
+import '../../../../shared/widgets/button.dart';
+import '../../../../shared/widgets/text.dart';
+import '../../../../shared/widgets/textbutton.dart';
+import '../../../../shared/widgets/textformfield.dart';
 import 'package:viammundi_frontend/shared/resources/colors.dart';
 import 'package:viammundi_frontend/shared/constants/constants.dart';
 

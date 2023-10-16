@@ -37,8 +37,8 @@ class TitleSection extends StatelessWidget {
         children: [
           // Columna de la foto de perfil (Círculo)
           Container(
-            width: 60.0,
-            height: 60.0,
+            width: 40.0,
+            height: 40.0,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(

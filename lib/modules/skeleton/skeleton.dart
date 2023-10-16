@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../route/presentation/pages/create_route.dart';
-import '../feed/pages/feed.dart';
+import '../route/presentation/pages/feed.dart';
 import '../profile/presentation/pages/login.dart';
 import '../skeleton/widgets/bottomtabs.dart';
 

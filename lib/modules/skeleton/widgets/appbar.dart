@@ -3,12 +3,17 @@ import 'package:viammundi_frontend/shared/resources/colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool showTabBar;
+  final bool isButtonDisabled;
 
-  const CustomAppBar({super.key, this.showTabBar = false});
+  const CustomAppBar({
+    super.key,
+    this.showTabBar = false,
+    this.isButtonDisabled = false,
+  });
 
   @override
   Size get preferredSize =>
-      showTabBar ? const Size.fromHeight(100) : const Size.fromHeight(50);
+      showTabBar ? const Size.fromHeight(100) : const Size.fromHeight(80);
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +30,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           },
         ),
         IconButton(
-          icon: const Icon(Icons.search),
-          tooltip: 'Busqueda',
-          onPressed: () {
-            Navigator.pushNamed(context, '/browser');
-          },
-        ),
+            icon: const Icon(Icons.search),
+            tooltip: 'Busqueda',
+            onPressed: isButtonDisabled
+                ? () {
+                    null;
+                  }
+                : () {
+                    Navigator.pushNamed(context, '/browser');
+                  }),
       ],
       bottom: showTabBar
           ? const TabBar(

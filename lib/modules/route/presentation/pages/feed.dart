@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../skeleton/widgets/appbar.dart';
+import 'package:viammundi_frontend/shared/widgets/circle_avatar.dart';
+import '../../../skeleton/widgets/appbar.dart';
 
 class FeedPage extends StatelessWidget {
   const FeedPage({super.key});
@@ -12,9 +13,7 @@ class FeedPage extends StatelessWidget {
       child: Scaffold(
         appBar: CustomAppBar(showTabBar: true),
         body: TabBarView(children: [
-          Center(
-            child: Text("Most liked routes"),
-          ),
+          CircleAvatarWidget(),
           Center(
             child: Text("Most close routes"),
           ),
@@ -23,7 +22,7 @@ class FeedPage extends StatelessWidget {
           ),
           Center(
             child: Text("Most short routes"),
-          )
+          ),
         ]),
       ),
     );

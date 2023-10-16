@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../../shared/constants/constants.dart';
-import '../../../shared/resources/colors.dart';
-import '../../../shared/widgets/button.dart';
-import '../../../shared/widgets/text.dart';
-import '../../../shared/widgets/textfield.dart';
-import '../../skeleton/widgets/appbar.dart';
+import '../../../../shared/constants/constants.dart';
+import '../../../../shared/resources/colors.dart';
+import '../../../../shared/widgets/button.dart';
+import '../../../../shared/widgets/text.dart';
+import '../../../../shared/widgets/textfield.dart';
+import '../../../skeleton/widgets/appbar.dart';
 
 class BrowserPage extends StatefulWidget {
   const BrowserPage({super.key});
@@ -46,7 +46,9 @@ class _BrowserPageState extends State<BrowserPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: const CustomAppBar(
+        isButtonDisabled: true,
+      ),
       body: Container(
         alignment: Alignment.center,
         padding: const EdgeInsets.all(8),

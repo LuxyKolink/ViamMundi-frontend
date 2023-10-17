@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/route_post.dart';
+
 class FeedContentPage extends StatelessWidget {
   const FeedContentPage({super.key});
 
@@ -7,7 +9,11 @@ class FeedContentPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
       child: Column(
-        children: [],
+        children: [
+          RoutePostWidget(),
+          RoutePostWidget(),
+          RoutePostWidget(),
+        ],
       ),
     );
   }

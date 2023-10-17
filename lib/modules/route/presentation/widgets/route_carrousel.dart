@@ -32,22 +32,26 @@ class _RouteCarrouselWidgetState extends State<RouteCarrouselWidget> {
   @override
   Widget build(BuildContext context) {
     final PageController controller = PageController();
-    return PageView(
-      controller: controller,
-      children: <Widget>[
-        Container(
-          color: getRandomColor(),
-          child: const Center(child: Text('1')),
-        ),
-        Container(
-          color: getRandomColor(),
-          child: const Center(child: Text('2')),
-        ),
-        Container(
-          color: getRandomColor(),
-          child: const Center(child: Text('3')),
-        )
-      ],
+    return AspectRatio(
+      aspectRatio: 1 / 1,
+      child: PageView(
+        scrollBehavior: const MaterialScrollBehavior(),
+        controller: controller,
+        children: <Widget>[
+          Image.asset(
+            'assets/temp/img1.jpg',
+            fit: BoxFit.cover,
+          ),
+          Container(
+            color: getRandomColor(),
+            child: const Center(child: Text('2')),
+          ),
+          Container(
+            color: getRandomColor(),
+            child: const Center(child: Text('3')),
+          )
+        ],
+      ),
     );
   }
 }

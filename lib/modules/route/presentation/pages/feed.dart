@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:viammundi_frontend/modules/route/presentation/pages/feed_routes.dart';
 import 'package:viammundi_frontend/modules/route/presentation/widgets/route_carrousel.dart';
-import 'package:viammundi_frontend/modules/route/presentation/widgets/title_section.dart';
-import '../widgets/route_post_tile.dart';
-import '../../../../shared/widgets/circle_avatar.dart';
 import '../../../skeleton/widgets/appbar.dart';
+import '../widgets/route_post_tile.dart';
+import '../widgets/route_stats.dart';
 
 class FeedPage extends StatelessWidget {
   const FeedPage({super.key});
@@ -16,17 +16,19 @@ class FeedPage extends StatelessWidget {
       child: Scaffold(
         appBar: CustomAppBar(showTabBar: true),
         body: TabBarView(children: [
-          CircleAvatarWidget(),
+          RoutePostStats(
+            likes: 10,
+            duration: 10,
+            price: 10,
+            distance: 10,
+            comments: 10,
+          ),
+          FeedContentPage(),
+          RouteCarrouselWidget(),
           RoutePostTile(
             profileImageUrl: 'assets/icons/profile_icon.png',
             userName: 'Diegod',
-          ),
-          TitleSection(
-            profileImageUrl: 'assets/icons/profile_icon.png',
-            userName: 'Diegod',
-            routeName: 'Comidas Rapidas el chamo',
-          ),
-          RouteCarrouselWidget()
+          )
         ]),
       ),
     );

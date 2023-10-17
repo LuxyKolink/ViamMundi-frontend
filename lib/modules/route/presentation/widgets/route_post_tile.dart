@@ -15,7 +15,6 @@ class RoutePostTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(AppSpacing.spacingSmall),
-      margin: const EdgeInsets.symmetric(vertical: 250),
       alignment: Alignment.center,
       child: Row(
         children: [

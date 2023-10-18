@@ -2,34 +2,34 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:viammundi_frontend/shared/resources/map.utils.dart';
 
 class MapController extends ChangeNotifier {
-  MapController() {
-    
-    const LocationSettings locationSettings = LocationSettings(
-      accuracy: LocationAccuracy.high,
-      distanceFilter: 100,
-    );
+  final List<LatLng> pointroutes = List.empty();
 
-    // ignore: unused_local_variable
-    StreamSubscription<Position> positionStream =
-        Geolocator.getPositionStream(locationSettings: locationSettings)
-            .listen((Position? position) {
-              if (position != null){
-                pointroutes.add(LatLng(position.latitude, position.longitude));
-                notifyListeners();
-              }
-            
-      print(position == null
-          ? 'Unknown'
-          : '${position.latitude.toString()}, ${position.longitude.toString()}');
+  var parar = false;
 
-    });
+  getPos(Timer a) async {
+    var pos = await Geolocator.getCurrentPosition();
+    print('${pos.latitude.toString()}, ${pos.longitude.toString()}');
+    //obtener la distancia entre puntos y solo guardar la que supere unos metros especificos desde un punto anterior
+    if (parar) {
+      a.cancel();
+    }
+  }
+
+  suscribePosition() async {
+    //subscription.cancel();
+    Timer.periodic(const Duration(seconds: 3), getPos);
+  }
+
+  dessuscribePosition() async {
+    //subscription.cancel();
+    parar = true;
+    notifyListeners();
   }
 
   final Map<MarkerId, Marker> _markers = {};
-
-  final List<LatLng> pointroutes = List.empty();
 
   Set<Marker> get markers => _markers.values.toSet();
 

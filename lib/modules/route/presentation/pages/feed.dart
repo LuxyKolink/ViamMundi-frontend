@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:viammundi_frontend/modules/route/presentation/pages/feed_routes.dart';
+import 'package:viammundi_frontend/modules/route/presentation/pages/progress_route.dart';
 import 'package:viammundi_frontend/modules/route/presentation/widgets/route_carrousel.dart';
 import '../../../skeleton/widgets/appbar.dart';
 import '../widgets/route_post_tile.dart';
@@ -24,7 +25,8 @@ class FeedPage extends StatelessWidget {
             comments: 10,
           ),
           FeedContentPage(),
-          RouteCarrouselWidget(),
+          //RouteCarrouselWidget(),
+          ProgressRoutePage(),
           RoutePostTile(
             profileImageUrl: 'assets/icons/profile_icon.png',
             userName: 'Diegod',

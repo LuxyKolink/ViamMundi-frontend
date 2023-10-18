@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:viammundi_frontend/modules/route/data/services/map.api.dart';
 import './config/routes/routes.dart';
 import './config/theme/theme.dart';
 
@@ -11,12 +13,15 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ViaMundi',
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
-      initialRoute: '/',
-      routes: getRoutes(),
+    return ChangeNotifierProvider(
+      create: (context) => MapController(),
+      child: MaterialApp(
+        title: 'ViaMundi',
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.lightTheme,
+        initialRoute: '/',
+        routes: getRoutes(),
+      ),
     );
   }
 }

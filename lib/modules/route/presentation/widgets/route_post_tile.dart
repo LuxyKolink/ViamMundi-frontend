@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:viammundi_frontend/shared/constants/constants.dart';
+import 'package:viammundi_frontend/shared/widgets/circle_avatar.dart';
 
 class RoutePostTile extends StatelessWidget {
   final String profileImageUrl;
@@ -18,10 +19,10 @@ class RoutePostTile extends StatelessWidget {
       alignment: Alignment.center,
       child: Row(
         children: [
-          SizedBox(
+          const SizedBox(
             width: 30,
             height: 30,
-            child: CircleAvatar(backgroundImage: AssetImage(profileImageUrl)),
+            child: CircleAvatarWidget(),
           ),
           const SizedBox(
             width: AppSpacing.spacingSmall,

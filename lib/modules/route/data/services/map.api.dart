@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:viammundi_frontend/shared/resources/map.utils.dart';
 
 class MapController extends ChangeNotifier {
   final List<LatLng> pointroutes = List.empty();

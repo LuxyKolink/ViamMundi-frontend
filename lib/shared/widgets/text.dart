@@ -17,11 +17,17 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = TextStyle(
-        color: textColor,
-        fontSize: fontSize,
-        fontWeight: isBold ? FontWeight.bold : FontWeight.normal);
+    // final textStyle = TextStyle(
+    //     color: textColor,
+    //     fontSize: fontSize,
+    //     fontWeight: isBold ? FontWeight.bold : FontWeight.normal);
 
-    return Text(text, style: textStyle);
+    // return Text(text /*, style: textStyle*/);
+    return Text(
+      text,
+      style: TextStyle(
+          fontSize: fontSize,
+          fontWeight: isBold ? FontWeight.bold : FontWeight.normal),
+    );
   }
 }

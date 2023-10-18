@@ -22,5 +22,37 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/icons/profile_icon.png
-    - assets/temp/img1.jpg
+    - assets/icons/
+    - assets/temp/
+  fonts:
+    - family: Almarai
+      fonts:
+        - asset: assets/fonts/Almarai/Almarai-Bold.ttf
+        - asset: assets/fonts/Almarai/Almarai-ExtraBold.ttf
+        - asset: assets/fonts/Almarai/Almarai-Light.ttf
+        - asset: assets/fonts/Almarai/Almarai-Regular.ttf
+          # style: regular
+    - family: Ceviche_One
+      fonts:
+        - asset: assets/fonts/Ceviche_One/CevicheOne-Regular.ttf
+          # weight: nose
+
+# flutter:
+#   uses-material-design: true
+#   assets:
+#     - assets/images/
+#   fonts:
+#     - family: Roboto
+#       fonts:
+#         - asset: assets/fonts/Roboto-Regular.ttf
+#         - asset: assets/fonts/Roboto-Bold.ttf
+#           weight: 700
+#     - family: Poppins
+#       fonts:
+#         - asset: assets/fonts/Poppins-Regular.ttf
+#         - asset: assets/fonts/Poppins-Bold.ttf
+#           weight: 700
+#         - asset: assets/fonts/Poppins-Black.ttf
+#           weight: 900
+#         - asset: assets/fonts/Poppins-Italic.ttf
+#           style: italic

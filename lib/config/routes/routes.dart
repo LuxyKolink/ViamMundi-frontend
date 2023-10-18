@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:viammundi_frontend/modules/profile/presentation/pages/user_bookmarks_page.dart';
+import 'package:viammundi_frontend/modules/profile/presentation/pages/user_config_page.dart';
+import 'package:viammundi_frontend/modules/profile/presentation/pages/user_drafts_page.dart';
 import 'package:viammundi_frontend/modules/route/presentation/pages/browser.dart';
 import 'package:viammundi_frontend/modules/main.dart';
 import 'package:viammundi_frontend/modules/route/presentation/pages/create_route.dart';
@@ -10,13 +13,18 @@ import 'package:viammundi_frontend/modules/route/presentation/widgets/mapown.dar
 
 Map<String, WidgetBuilder> getRoutes() {
   return {
+    /*Routes*/
     '/': (context) => const Home(),
-    '/profile': (context) => const ProfilePage(),
     '/browser': (context) => const BrowserPage(),
     '/feed': (context) => const FeedPage(),
     '/createroute': (context) => const CreateRoutePage(),
+    '/map': (context) => const MapOwnState(),
+    /*Users*/
+    '/profile': (context) => const ProfilePage(),
     '/login': (context) => const LoginPage(),
     '/register': (context) => const RegisterPage(),
-    '/map': (context) => const MapOwnState()
+    '/config':(context) => const UserConfigPage(),
+    '/drafts':(context) => const UserDraftsPage(),
+    '/bookmarks':(context) => const UserBookmarksPage()
   };
 }

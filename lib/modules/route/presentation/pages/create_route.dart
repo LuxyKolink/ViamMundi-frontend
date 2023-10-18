@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../profile/presentation/widgets/user_banner.dart';
 import '../../../skeleton/widgets/appbar.dart';
 
 class CreateRoutePage extends StatelessWidget {
@@ -8,9 +9,7 @@ class CreateRoutePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       appBar: CustomAppBar(),
-      body: Center(
-        child: Text('Route Creation'),
-      ),
+      body: UserBannerWidget()
     );
   }
 }

@@ -18,13 +18,13 @@ class _ProgressRoutePageState extends State<ProgressRoutePage> {
       child: Column(
         children: [
           Button(
-            text: "inciiar toma de datos",
+            text: "inciar toma de datos",
             onPressed: () {
               appState.suscribePosition();
             },
           ),
           Button(
-            text: "desinciiar toma de datos",
+            text: "parar toma de datos",
             onPressed: () {
               appState.dessuscribePosition();
             },

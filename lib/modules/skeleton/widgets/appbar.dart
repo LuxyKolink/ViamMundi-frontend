@@ -13,7 +13,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize =>
-      showTabBar ? const Size.fromHeight(100) : const Size.fromHeight(80);
+      showTabBar ? const Size.fromHeight(100) : const Size.fromHeight(60);
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +42,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ],
       bottom: showTabBar
           ? const TabBar(
+            isScrollable: false,
               labelColor: AppColors.white,
               tabs: <Widget>[
                 Tab(icon: Icon(Icons.thumb_up)),

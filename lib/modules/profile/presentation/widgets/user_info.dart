@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:viammundi_frontend/shared/widgets/circle_avatar.dart';
+import '../../../../shared/widgets/circle_avatar.dart';
 import '../../../../shared/widgets/text.dart';
 import '../../../../shared/constants/constants.dart';
 import '../../../../shared/widgets/button.dart';
@@ -27,44 +27,79 @@ class UserInfoWidget extends StatelessWidget {
       padding: const EdgeInsets.all(AppSpacing.spacingMedium),
       child: Row(
         children: [
-          /*1*/
           Column(
             children: [
-              /*2*/
               Container(
                 padding: const EdgeInsets.only(bottom: 8),
                 child: const Expanded(
                   child: SizedBox(
-                    width: 50,
-                    height: 50,
+                    width: 60,
+                    height: 60,
                     child: CircleAvatarWidget(),
                   ),
                 ),
               ),
-              Text(username)
+              CustomText(text: username, isBold: true,)
             ],
           ),
           Expanded(
             child: Column(
               children: [
-                /*3*/
                 Row(
                   children: [
                     Container(
-                      padding: const EdgeInsets.all(AppSpacing.spacingMedium),
+                      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.spacingMedium),
                       child: Button(
                         text: 'Seguir',
                         onPressed: () {},
                         width: 75,
                       ),
                     ),
-                    const Expanded(
-                        child: CustomText(
-                      text: 'Hola',
-                      fontSize: FontSize.fontSizeSmall,
-                    ))
+                    Expanded(
+                        child: Row(
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(padding: const EdgeInsets.all(AppSpacing.spacingExtraSmall),
+                                child: CustomText(text: '$followers', fontSize: FontSize.fontSizeSmall),
+                              ),
+                                const Padding(padding: EdgeInsets.all(AppSpacing.spacingExtraSmall),
+                                child: CustomText(text: 'Seguidores', fontSize: FontSize.fontSizeSmall),
+                              )
+                              ],
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(padding: const EdgeInsets.all(AppSpacing.spacingExtraSmall),
+                                child: CustomText(text: '$followeds', fontSize: FontSize.fontSizeSmall),
+                              ),
+                                const Padding(padding: EdgeInsets.all(AppSpacing.spacingExtraSmall),
+                                child: CustomText(text: 'Seguidos', fontSize: FontSize.fontSizeSmall),
+                              )
+                              ],
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(padding: const EdgeInsets.all(AppSpacing.spacingExtraSmall),
+                                child: CustomText(text: '$routes', fontSize: FontSize.fontSizeSmall),
+                              ),
+                                const Padding(padding: EdgeInsets.all(AppSpacing.spacingExtraSmall),
+                                child: CustomText(text: 'Rutas', fontSize: FontSize.fontSizeSmall),
+                              )
+                              ],
+                            )
+                          ],
+                        )
+                    ),
                   ],
                 ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: AppSpacing.spacingMedium , vertical: AppSpacing.spacingSmall),
+                  child: const CustomText(text: AppText.loremIpsum, fontSize: FontSize.fontSizeSmall),
+                )
               ],
             ),
           ),

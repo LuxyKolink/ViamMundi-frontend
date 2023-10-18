@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:viammundi_frontend/modules/profile/presentation/widgets/user_options.dart';
 import 'package:viammundi_frontend/modules/route/presentation/pages/feed_routes.dart';
 import 'package:viammundi_frontend/modules/route/presentation/pages/progress_route.dart';
-import 'package:viammundi_frontend/shared/widgets/circle_avatar.dart';
 import '../../../../shared/constants/constants.dart';
 import '../../../profile/presentation/widgets/user_info.dart';
 import '../../../skeleton/widgets/appbar.dart';
@@ -27,7 +27,7 @@ class FeedPage extends StatelessWidget {
           ),
           FeedContentPage(),
           ProgressRoutePage(),
-          CircleAvatarWidget()
+          UserOptionsWidget()
         ]),
       ),
     );

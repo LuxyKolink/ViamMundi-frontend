@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../bloc/selected_page_provider.dart';
 import '../../../shared/resources/colors.dart';
 
 class BottomNavBar extends StatelessWidget {
-  final int selectedIndex;
-  final Function(int) onItemTapped;
-
-  const BottomNavBar(
-      {super.key, required this.onItemTapped, required this.selectedIndex});
+  const BottomNavBar({super.key});
 
   @override
   Widget build(BuildContext context) {
+    int selectedPage = Provider.of<SelectedPageProvider>(context).selectedPage;
+
     return BottomNavigationBar(
       unselectedItemColor: AppColors.white,
       backgroundColor: AppColors.primaryColor,
@@ -31,9 +32,12 @@ class BottomNavBar extends StatelessWidget {
           label: 'Perfil',
         ),
       ],
-      currentIndex: selectedIndex,
+      currentIndex: selectedPage,
       selectedItemColor: AppColors.white,
-      onTap: onItemTapped,
+      onTap: (value) {
+        Provider.of<SelectedPageProvider>(context, listen: false)
+            .changePage(value);
+      },
     );
   }
 }

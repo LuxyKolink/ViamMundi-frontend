@@ -5,6 +5,8 @@ class UserBookmarksPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Rutas guardadas del Perfil'),);
+    return const Scaffold(
+      body: Center(child: Text('Rutas guardadas del Perfil')),
+    );
   }
 }

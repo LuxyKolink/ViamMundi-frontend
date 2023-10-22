@@ -39,7 +39,10 @@ class UserInfoWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              CustomText(text: username, isBold: true,)
+              CustomText(
+                text: username,
+                isBold: true,
+              )
             ],
           ),
           Expanded(
@@ -48,7 +51,8 @@ class UserInfoWidget extends StatelessWidget {
                 Row(
                   children: [
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.spacingMedium),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: AppSpacing.spacingMedium),
                       child: Button(
                         text: 'Seguir',
                         onPressed: () {},
@@ -57,48 +61,75 @@ class UserInfoWidget extends StatelessWidget {
                     ),
                     Expanded(
                         child: Row(
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(padding: const EdgeInsets.all(AppSpacing.spacingExtraSmall),
-                                child: CustomText(text: '$followers', fontSize: FontSize.fontSizeSmall),
-                              ),
-                                const Padding(padding: EdgeInsets.all(AppSpacing.spacingExtraSmall),
-                                child: CustomText(text: 'Seguidores', fontSize: FontSize.fontSizeSmall),
-                              )
-                              ],
+                            Padding(
+                              padding: const EdgeInsets.all(
+                                  AppSpacing.spacingExtraSmall),
+                              child: CustomText(
+                                  text: '$followers',
+                                  fontSize: FontSize.fontSizeSmall),
                             ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(padding: const EdgeInsets.all(AppSpacing.spacingExtraSmall),
-                                child: CustomText(text: '$followeds', fontSize: FontSize.fontSizeSmall),
-                              ),
-                                const Padding(padding: EdgeInsets.all(AppSpacing.spacingExtraSmall),
-                                child: CustomText(text: 'Seguidos', fontSize: FontSize.fontSizeSmall),
-                              )
-                              ],
+                            const Padding(
+                              padding:
+                                  EdgeInsets.all(AppSpacing.spacingExtraSmall),
+                              child: CustomText(
+                                  text: 'Seguidores',
+                                  fontSize: FontSize.fontSizeSmall),
+                            )
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(
+                                  AppSpacing.spacingExtraSmall),
+                              child: CustomText(
+                                  text: '$followeds',
+                                  fontSize: FontSize.fontSizeSmall),
                             ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(padding: const EdgeInsets.all(AppSpacing.spacingExtraSmall),
-                                child: CustomText(text: '$routes', fontSize: FontSize.fontSizeSmall),
-                              ),
-                                const Padding(padding: EdgeInsets.all(AppSpacing.spacingExtraSmall),
-                                child: CustomText(text: 'Rutas', fontSize: FontSize.fontSizeSmall),
-                              )
-                              ],
+                            const Padding(
+                              padding:
+                                  EdgeInsets.all(AppSpacing.spacingExtraSmall),
+                              child: CustomText(
+                                  text: 'Seguidos',
+                                  fontSize: FontSize.fontSizeSmall),
+                            )
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(
+                                  AppSpacing.spacingExtraSmall),
+                              child: CustomText(
+                                  text: '$routes',
+                                  fontSize: FontSize.fontSizeSmall),
+                            ),
+                            const Padding(
+                              padding:
+                                  EdgeInsets.all(AppSpacing.spacingExtraSmall),
+                              child: CustomText(
+                                  text: 'Rutas',
+                                  fontSize: FontSize.fontSizeSmall),
                             )
                           ],
                         )
-                    ),
+                      ],
+                    )),
                   ],
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: AppSpacing.spacingMedium , vertical: AppSpacing.spacingSmall),
-                  child: const CustomText(text: AppText.loremIpsum, fontSize: FontSize.fontSizeSmall),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: AppSpacing.spacingMedium,
+                      vertical: AppSpacing.spacingSmall),
+                  child: const CustomText(
+                      text: AppText.loremIpsum,
+                      fontSize: FontSize.fontSizeSmall),
                 )
               ],
             ),

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:viammundi_frontend/shared/resources/colors.dart';
+
+import '../bloc/selected_filter_provider.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool showTabBar;
@@ -18,7 +21,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      // backgroundColor: AppColors.primaryColor,
       title: const Text('ViamMundi'),
       actions: <Widget>[
         IconButton(
@@ -41,15 +43,19 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   }),
       ],
       bottom: showTabBar
-          ? const TabBar(
-            isScrollable: false,
+          ? TabBar(
+              isScrollable: false,
               labelColor: AppColors.white,
-              tabs: <Widget>[
+              tabs: const <Widget>[
                 Tab(icon: Icon(Icons.thumb_up)),
                 Tab(icon: Icon(Icons.map)),
                 Tab(icon: Icon(Icons.money)),
                 Tab(icon: Icon(Icons.timer))
               ],
+              onTap: (value) {
+                Provider.of<SelectedFilterProvider>(context, listen: false)
+                    .changeFilter(value);
+              },
             )
           : null, // Si showTabBar es falso, no muestra TabBar
     );

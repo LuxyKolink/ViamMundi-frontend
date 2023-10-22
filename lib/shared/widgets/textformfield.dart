@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:viammundi_frontend/shared/resources/colors.dart';
+import '../resources/colors.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final TextEditingController controller;

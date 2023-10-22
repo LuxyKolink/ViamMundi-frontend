@@ -1,44 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:viammundi_frontend/modules/skeleton/widgets/appbar.dart';
+
 import '../route/presentation/pages/create_route.dart';
 import '../route/presentation/pages/feed.dart';
 import '../profile/presentation/pages/login.dart';
 import '../skeleton/widgets/bottomtabs.dart';
+import 'bloc/selected_filter_provider.dart';
+import 'bloc/selected_page_provider.dart';
 
-class Skeleton extends StatefulWidget {
+List<Widget> pages = const [
+  FeedPage(),
+  CreateRoutePage(),
+  LoginPage(),
+];
+
+class Skeleton extends StatelessWidget {
   const Skeleton({super.key});
 
   @override
-  State<Skeleton> createState() => _SkeletonState();
-}
-
-class _SkeletonState extends State<Skeleton> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    Widget page;
-    switch (_selectedIndex) {
-      case 0:
-        page = const FeedPage();
-      case 1:
-        page = const CreateRoutePage();
-      case 2:
-        // page = const ProfilePage();
-        page = const LoginPage();
-      default:
-        throw UnimplementedError('no widget for $_selectedIndex');
+    int selectedPage = Provider.of<SelectedPageProvider>(context).selectedPage;
+    int selectedFilter =
+        Provider.of<SelectedFilterProvider>(context).selectedFilter;
+
+    if (selectedPage == 0) {
+      return DefaultTabController(
+        initialIndex: selectedFilter,
+        length: 4,
+        child: const Scaffold(
+          appBar: CustomAppBar(showTabBar: true),
+          body: FeedPage(),
+          bottomNavigationBar: BottomNavBar(),
+        ),
+      );
     }
 
     return Scaffold(
-      body: page,
-      bottomNavigationBar: BottomNavBar(
-          onItemTapped: _onItemTapped, selectedIndex: _selectedIndex),
+      appBar: const CustomAppBar(),
+      body: pages[selectedPage],
+      bottomNavigationBar: const BottomNavBar(),
     );
   }
 }

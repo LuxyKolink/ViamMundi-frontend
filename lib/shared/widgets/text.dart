@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:viammundi_frontend/shared/resources/colors.dart';
-import 'package:viammundi_frontend/shared/constants/constants.dart';
+import '../resources/colors.dart';
+import '../constants/constants.dart';
 
 class CustomText extends StatelessWidget {
   final String text;

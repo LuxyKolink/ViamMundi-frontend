@@ -44,15 +44,8 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  List<UsersModel> users = [];
-
-  void _getUsers() {
-    users = UsersModel.getUsers();
-  }
-
   @override
   void initState() {
-    _getUsers();
     _username = TextEditingController();
     _password = TextEditingController();
     super.initState();

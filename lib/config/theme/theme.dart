@@ -30,7 +30,7 @@ class AppTheme {
     textTheme: const TextTheme(bodyMedium: TextStyle(fontFamily: 'Almarai')),
     appBarTheme: const AppBarTheme(
       titleTextStyle: TextStyle(
-        color: AppColors.primaryColor,
+        color: AppColors.white,
         fontFamily: 'Ceviche_One',
         fontSize: FontSize.fontSizeLarge,
       ),

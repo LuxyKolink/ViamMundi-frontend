@@ -28,5 +28,12 @@ class AppTheme {
       primary: AppColors.primaryColor,
     ),
     textTheme: const TextTheme(bodyMedium: TextStyle(fontFamily: 'Almarai')),
+    appBarTheme: const AppBarTheme(
+      titleTextStyle: TextStyle(
+        color: AppColors.primaryColor,
+        fontFamily: 'Ceviche_One',
+        fontSize: FontSize.fontSizeLarge,
+      ),
+    ),
   );
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:viammundi_frontend/shared/resources/colors.dart';
 
-import '../bloc/selected_filter_provider.dart';
+import '../bloc/selected_provider.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool showTabBar;
@@ -53,7 +53,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 Tab(icon: Icon(Icons.timer))
               ],
               onTap: (value) {
-                Provider.of<SelectedFilterProvider>(context, listen: false)
+                Provider.of<SelectedProvider>(context, listen: false)
                     .changeFilter(value);
               },
             )

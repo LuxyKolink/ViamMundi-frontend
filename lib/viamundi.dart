@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:viammundi_frontend/modules/skeleton/bloc/selected_filter_provider.dart';
-import 'package:viammundi_frontend/modules/skeleton/bloc/selected_page_provider.dart';
 import 'modules/route/data/services/map.api.dart';
 import './config/routes/routes.dart';
 import './config/theme/theme.dart';
+import 'modules/skeleton/bloc/selected_provider.dart';
 
 void main() {
   runApp(const MainApp());
@@ -18,10 +17,7 @@ class MainApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => SelectedPageProvider(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => SelectedFilterProvider(),
+          create: (context) => SelectedProvider(),
         ),
         ChangeNotifierProvider(
           create: (context) => MapController(),

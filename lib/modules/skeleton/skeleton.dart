@@ -6,8 +6,7 @@ import '../route/presentation/pages/create_route.dart';
 import '../route/presentation/pages/feed.dart';
 import '../profile/presentation/pages/login.dart';
 import '../skeleton/widgets/bottomtabs.dart';
-import 'bloc/selected_filter_provider.dart';
-import 'bloc/selected_page_provider.dart';
+import 'bloc/selected_provider.dart';
 
 List<Widget> pages = const [
   FeedPage(),
@@ -20,9 +19,8 @@ class Skeleton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int selectedPage = Provider.of<SelectedPageProvider>(context).selectedPage;
-    int selectedFilter =
-        Provider.of<SelectedFilterProvider>(context).selectedFilter;
+    int selectedPage = Provider.of<SelectedProvider>(context).selectedPage;
+    int selectedFilter = Provider.of<SelectedProvider>(context).selectedFilter;
 
     if (selectedPage == 0) {
       return DefaultTabController(

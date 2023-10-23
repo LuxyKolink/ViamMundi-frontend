@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../bloc/selected_page_provider.dart';
+import '../bloc/selected_provider.dart';
 import '../../../shared/resources/colors.dart';
 
 class BottomNavBar extends StatelessWidget {
@@ -9,7 +9,7 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int selectedPage = Provider.of<SelectedPageProvider>(context).selectedPage;
+    int selectedPage = Provider.of<SelectedProvider>(context).selectedPage;
 
     return BottomNavigationBar(
       unselectedItemColor: AppColors.white,
@@ -35,8 +35,7 @@ class BottomNavBar extends StatelessWidget {
       currentIndex: selectedPage,
       selectedItemColor: AppColors.white,
       onTap: (value) {
-        Provider.of<SelectedPageProvider>(context, listen: false)
-            .changePage(value);
+        Provider.of<SelectedProvider>(context, listen: false).changePage(value);
       },
     );
   }

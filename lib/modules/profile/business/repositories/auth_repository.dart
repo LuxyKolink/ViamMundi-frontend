@@ -4,7 +4,7 @@ import '../entities/user_entity.dart';
 
 abstract class AuthRepository {
   Future<UserEntity> findAll();
-  Future<UserEntity> findOne(String userId);
+  Future<UserEntity> findOne({required String userId});
   Future<UserEntity> findOneByEmail(String email);
   Future<UserEntity> findOneByTokenFingerPrint(String tokenFingerPrint);
   Future<UserEntity> createUser(DtoRegisterUserEntity registerUserDto);

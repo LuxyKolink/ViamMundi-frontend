@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:viammundi_frontend/modules/profile/data/models/token.model.dart';
-import 'package:viammundi_frontend/modules/profile/data/models/users.model.dart';
 import 'package:viammundi_frontend/modules/profile/data/services/api.client.dart';
+import 'package:viammundi_frontend/shared/constants/constants.dart';
 import '../../../../shared/widgets/button.dart';
 import '../../../../shared/widgets/text.dart';
 import '../../../../shared/widgets/textbutton.dart';
 import '../../../../shared/widgets/textformfield.dart';
-import 'package:viammundi_frontend/shared/resources/colors.dart';
-import 'package:viammundi_frontend/shared/constants/constants.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -68,11 +66,10 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const CustomText(
-              text: 'Login',
-              fontSize: FontSize.fontSizeLarge,
-              textColor: AppColors.primaryColor,
-              isBold: true,
+              text: 'ViamMundi',
+              isTitle: true,
             ),
+            const SizedBox(height: AppSpacing.spacingExtraLarge),
             Padding(
               padding: const EdgeInsets.all(16),
               child: CustomTextFormField(
@@ -87,14 +84,9 @@ class _LoginPageState extends State<LoginPage> {
                 labelText: 'Contraseña',
               ),
             ),
-            const CustomText(
-              text: 'Huella',
-              isBold: true,
-              fontSize: FontSize.fontSizeLarge,
-              textColor: AppColors.primaryColor,
-            ),
+            const SizedBox(height: AppSpacing.spacingMedium),
             Padding(
-              padding: const EdgeInsets.all(4),
+              padding: const EdgeInsets.all(0),
               child: CustomTextButton(
                 text: 'Registrarse',
                 onPressed: () {
@@ -103,20 +95,27 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(4),
+              padding: const EdgeInsets.all(0),
               child: CustomTextButton(
                 text: 'Recuperar Contraseña',
                 onPressed: () {},
               ),
             ),
+            const SizedBox(height: AppSpacing.spacingLarge),
             Padding(
-              padding: const EdgeInsets.all(4),
+              padding: const EdgeInsets.all(0),
               child: Button(text: 'Entrar', onPressed: _login),
             ),
-            if (_tokenJWTModel == null)
-              Padding(
-                  padding: const EdgeInsets.all(4),
-                  child: Text('$errorMesagge')),
+            Padding(
+              padding: const EdgeInsets.all(0),
+              child: CustomTextButton(
+                text: 'Regresar',
+                onPressed: () {
+                  Navigator.pushNamed(context, '/');
+                },
+              ),
+            ),
+            if (_tokenJWTModel == null) Text('$errorMesagge'),
           ],
         ),
       ),

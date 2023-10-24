@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:viammundi_frontend/modules/route/presentation/pages/browser.dart';
 import 'package:viammundi_frontend/modules/skeleton/widgets/appbar.dart';
 
 import '../route/presentation/pages/create_route.dart';
@@ -12,6 +13,7 @@ List<Widget> pages = const [
   FeedPage(),
   CreateRoutePage(),
   LoginPage(),
+  BrowserPage()
 ];
 
 class Skeleton extends StatelessWidget {

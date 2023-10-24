@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:viammundi_frontend/shared/constants/constants.dart';
 import '../../../skeleton/widgets/appbar.dart';
 import '../../../../shared/widgets/button.dart';
 import '../../../../shared/widgets/text.dart';
 import '../../../../shared/widgets/textbutton.dart';
 import '../../../../shared/widgets/textformfield.dart';
-import 'package:viammundi_frontend/shared/resources/colors.dart';
-import 'package:viammundi_frontend/shared/constants/constants.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -28,19 +27,23 @@ class _RegisterPageState extends State<RegisterPage> {
         padding: const EdgeInsets.all(8),
         child: Form(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              const SizedBox(
+                height: AppSpacing.spacingLarge,
+              ),
               const CustomText(
-                text: 'Register',
-                fontSize: FontSize.fontSizeLarge,
-                textColor: AppColors.primaryColor,
-                isBold: true,
+                text: 'Registro',
+                isTitle: true,
+              ),
+              const SizedBox(
+                height: AppSpacing.spacingLarge,
               ),
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: CustomTextFormField(
                   controller: _emailTextController,
-                  labelText: 'Usuario',
+                  labelText: 'Correo Electrónico',
                 ),
               ),
               Padding(
@@ -64,36 +67,23 @@ class _RegisterPageState extends State<RegisterPage> {
                   labelText: 'Confirmar Contraseña',
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(4),
-                child: CustomTextButton(
-                  text: 'Acepto los terminos y condiciones...(RadioTile)',
-                  onPressed: () {},
-                ),
+              CustomTextButton(
+                text: 'Acepto los terminos y condiciones...(RadioTile)',
+                onPressed: () {},
               ),
-              Padding(
-                padding: const EdgeInsets.all(4),
-                child: CustomTextButton(
-                  text: 'Recuperar Contraseña',
-                  onPressed: () {},
-                ),
+              Button(
+                text: 'Entrar',
+                onPressed: () {},
               ),
-              Padding(
-                padding: const EdgeInsets.all(4),
-                child: Button(
-                  text: 'Entrar',
-                  onPressed: () {},
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(4),
-                child: CustomTextButton(
-                  text: 'Regresar',
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.all(4),
+              //   child: CustomTextButton(
+              //     text: 'Regresar',
+              //     onPressed: () {
+              //       Navigator.pop(context);
+              //     },
+              //   ),
+              // ),
             ],
           ),
         ),

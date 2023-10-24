@@ -45,6 +45,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       bottom: showTabBar
           ? TabBar(
               isScrollable: false,
+              indicatorColor: AppColors.white,
               labelColor: AppColors.white,
               tabs: const <Widget>[
                 Tab(icon: Icon(Icons.thumb_up)),

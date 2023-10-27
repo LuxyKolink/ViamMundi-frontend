@@ -32,7 +32,7 @@ class CreateRoutePage extends StatelessWidget {
         Button(
           text: 'Iniciar',
           onPressed: () {
-            Navigator.pushNamed(context, 'progress');
+            Navigator.pushNamed(context, '/progress');
           },
         )
       ],

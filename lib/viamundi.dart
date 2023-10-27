@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:viammundi_frontend/modules/profile/presentation/bloc/user_state.dart';
 import 'modules/route/data/services/map.api.dart';
 import './config/routes/routes.dart';
 import './config/theme/theme.dart';
@@ -22,6 +23,7 @@ class MainApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => MapController(),
         ),
+        ChangeNotifierProvider(create: (context) => UserState())
       ],
       child: MaterialApp(
         title: 'ViaMundi',

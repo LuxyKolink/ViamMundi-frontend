@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:viammundi_frontend/modules/profile/presentation/bloc/user_state.dart';
 import 'package:viammundi_frontend/shared/constants/constants.dart';
+import '../../../skeleton/bloc/selected_provider.dart';
 import '../../../skeleton/widgets/appbar.dart';
 import '../../../../shared/widgets/button.dart';
 import '../../../../shared/widgets/text.dart';
@@ -14,9 +17,49 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final _emailTextController = TextEditingController();
-  final _usernameTextController = TextEditingController();
-  final _passwordTextController = TextEditingController();
+  late final TextEditingController _emailTextController;
+  late final TextEditingController _usernameTextController;
+  late final TextEditingController _passwordTextController;
+
+  String? errorMesagge = "";
+
+  Future<void> _register() async {
+    final email = _emailTextController.text;
+    final username = _usernameTextController.text;
+    final password = _passwordTextController.text;
+
+    print(email + username + password);
+
+    try {
+      UserState userState = Provider.of<UserState>(context, listen: false);
+      int selectedPage =
+          Provider.of<SelectedProvider>(context, listen: false).selectedPage;
+
+      print(email + username + password);
+      final result =
+          await userState.registerProvider(email, username, password);
+      //if acá
+      if (result) {
+        selectedPage == 0;
+        Navigator.pushNamed(context, '/');
+      } else {
+        setState(() {
+          errorMesagge = "credenciales incorrectas";
+        });
+      }
+    } catch (e) {
+      // Manejar errores aquí, por ejemplo, mostrar un mensaje de error.
+      print('Error al iniciar sesión: $e');
+    }
+  }
+
+  @override
+  void initState() {
+    _emailTextController = TextEditingController();
+    _usernameTextController = TextEditingController();
+    _passwordTextController = TextEditingController();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,10 +114,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 text: 'Acepto los terminos y condiciones...(RadioTile)',
                 onPressed: () {},
               ),
-              Button(
-                text: 'Entrar',
-                onPressed: () {},
-              ),
+              Button(text: 'Entrar', onPressed: _register)
               // Padding(
               //   padding: const EdgeInsets.all(4),
               //   child: CustomTextButton(

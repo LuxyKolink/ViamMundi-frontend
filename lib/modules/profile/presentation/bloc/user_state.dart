@@ -8,7 +8,7 @@ class UserState extends ChangeNotifier {
   TokenJWTModel? token;
   Exception? error;
 
-  Future<void> loginProvider(String email, String password) async {
+  Future<bool> loginProvider(String email, String password) async {
     try {
       final tokenModel = await login(email, password);
       final prefs = await SharedPreferences.getInstance();
@@ -16,10 +16,32 @@ class UserState extends ChangeNotifier {
       token = tokenModel;
       error = null;
       notifyListeners();
+      return true;
     } catch (e) {
       token = null;
       error = e as Exception;
       notifyListeners();
+      return false;
+    }
+  }
+
+  Future<bool> registerProvider(
+      String email, String username, String password) async {
+    try {
+      final tokenModel = await register(email, username, password);
+      print(tokenModel);
+      final prefs = await SharedPreferences.getInstance();
+      prefs.setString('accessToken', tokenModel.tokenJWT);
+      token = tokenModel;
+      error = null;
+      notifyListeners();
+      return true;
+    } catch (e) {
+      print("salió");
+      token = null;
+      error = e as Exception;
+      notifyListeners();
+      return false;
     }
   }
 }

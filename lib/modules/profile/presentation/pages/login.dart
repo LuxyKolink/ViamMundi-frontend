@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:viammundi_frontend/modules/profile/data/models/token.model.dart';
-import 'package:viammundi_frontend/modules/profile/data/services/api.client.dart';
 import 'package:viammundi_frontend/modules/profile/presentation/bloc/user_state.dart';
 import 'package:viammundi_frontend/shared/constants/constants.dart';
 import '../../../../shared/widgets/button.dart';

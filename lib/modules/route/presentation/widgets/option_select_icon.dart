@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:viammundi_frontend/shared/resources/colors.dart';
 
 class OptionSelectIcon extends StatelessWidget {
   final Icon icon;
@@ -24,6 +25,8 @@ class OptionSelectIcon extends StatelessWidget {
             padding: const EdgeInsets.all(4.0),
             child: InkWell(
               onTap: onTap,
+              autofocus: true,
+              focusColor: AppColors.primaryColor,
               child: icon,
             ),
           ),

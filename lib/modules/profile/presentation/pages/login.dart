@@ -30,6 +30,7 @@ class _LoginPageState extends State<LoginPage> {
     try {
       UserState userState = Provider.of<UserState>(context, listen: false);
       final result = await userState.loginProvider(email, password);
+
       //if acá
       if (result) {
         Navigator.pushNamed(context, '/');

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:viammundi_frontend/modules/profile/presentation/bloc/user_state.dart';
+
+import 'modules/profile/presentation/bloc/user_state.dart';
+import 'modules/route/presentation/bloc/selected_option_provider.dart';
 import 'modules/route/data/services/map.api.dart';
 import './config/routes/routes.dart';
 import './config/theme/theme.dart';
@@ -25,7 +27,10 @@ class MainApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => UserState(),
-        )
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SelectedOptionProvider(),
+        ),
       ],
       child: MaterialApp(
         title: 'ViaMundi',

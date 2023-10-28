@@ -16,7 +16,7 @@ class AppTheme {
         fontFamily: 'Ceviche_One',
       ),
       titleMedium: TextStyle(
-        fontSize: FontSize.fontSizeMedium,
+        fontSize: FontSize.fontSizeSmall,
         fontWeight: FontWeight.bold,
         fontFamily: 'Almarai',
       ),

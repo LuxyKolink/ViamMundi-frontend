@@ -23,7 +23,9 @@ class MainApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => MapController(),
         ),
-        ChangeNotifierProvider(create: (context) => UserState())
+        ChangeNotifierProvider(
+          create: (context) => UserState(),
+        )
       ],
       child: MaterialApp(
         title: 'ViaMundi',

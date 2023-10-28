@@ -32,15 +32,13 @@ class _RegisterPageState extends State<RegisterPage> {
 
     try {
       UserState userState = Provider.of<UserState>(context, listen: false);
-      int selectedPage =
-          Provider.of<SelectedProvider>(context, listen: false).selectedPage;
 
       print(email + username + password);
       final result =
           await userState.registerProvider(email, username, password);
       //if acá
       if (result) {
-        selectedPage == 0;
+        Provider.of<SelectedProvider>(context, listen: false).changePage(0);
         Navigator.pushNamed(context, '/');
       } else {
         setState(() {
@@ -63,6 +61,8 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    // int selectedPage = Provider.of<SelectedProvider>(context).selectedPage;
+
     return Scaffold(
       appBar: const CustomAppBar(),
       body: Container(
@@ -114,7 +114,15 @@ class _RegisterPageState extends State<RegisterPage> {
                 text: 'Acepto los terminos y condiciones...(RadioTile)',
                 onPressed: () {},
               ),
-              Button(text: 'Entrar', onPressed: _register)
+              Button(text: 'Entrar', onPressed: _register),
+              Button(
+                text: 'Entrar',
+                onPressed: () {
+                  Navigator.pushNamed(context, '/');
+                  Provider.of<SelectedProvider>(context, listen: false)
+                      .changePage(0);
+                },
+              ),
               // Padding(
               //   padding: const EdgeInsets.all(4),
               //   child: CustomTextButton(

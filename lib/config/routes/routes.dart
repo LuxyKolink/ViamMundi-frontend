@@ -9,7 +9,6 @@ import 'package:viammundi_frontend/modules/route/presentation/pages/feed.dart';
 import 'package:viammundi_frontend/modules/profile/presentation/pages/login.dart';
 import 'package:viammundi_frontend/modules/profile/presentation/pages/profile.dart';
 import 'package:viammundi_frontend/modules/profile/presentation/pages/register.dart';
-import 'package:viammundi_frontend/modules/route/presentation/widgets/mapown.dart';
 
 Map<String, WidgetBuilder> getRoutes() {
   return {
@@ -18,7 +17,6 @@ Map<String, WidgetBuilder> getRoutes() {
     '/browser': (context) => const BrowserPage(),
     '/feed': (context) => const FeedPage(),
     '/createroute': (context) => const CreateRoutePage(),
-    '/map': (context) => const MapOwnState(),
     /*Users*/
     '/profile': (context) => const ProfilePage(),
     '/login': (context) => const LoginPage(),

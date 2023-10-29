@@ -7,7 +7,7 @@ class GetUser {
 
   GetUser(this.repository);
 
-  Future<UserEntity> call({required String id}) async {
-    return await repository.findOne(userId: id);
-  }
+  // Future<UserEntity> call({required String id}) async {
+  //   return await repository.findOne(userId: id);
+  // }
 }

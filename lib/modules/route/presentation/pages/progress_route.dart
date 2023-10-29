@@ -28,7 +28,7 @@ class _ProgressRoutePageState extends State<ProgressRoutePage> {
             onPressed: () {
               appState.dessuscribePosition();
             },
-          )
+          ),
         ],
       ),
     );

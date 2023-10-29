@@ -6,7 +6,7 @@ class TabBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const TabBarView(children: [
+    return TabBarView(children: [
       FeedContentPage(),
       FeedContentPage(),
       FeedContentPage(),

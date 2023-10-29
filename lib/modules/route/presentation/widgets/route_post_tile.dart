@@ -4,12 +4,10 @@ import 'package:viammundi_frontend/shared/widgets/circle_avatar.dart';
 
 class RoutePostTile extends StatelessWidget {
   final String profileImageUrl;
-  final String userName;
 
   const RoutePostTile({
     super.key,
     required this.profileImageUrl,
-    required this.userName,
   });
 
   @override
@@ -27,7 +25,7 @@ class RoutePostTile extends StatelessWidget {
           const SizedBox(
             width: AppSpacing.spacingSmall,
           ),
-          Expanded(child: Text(userName))
+          Expanded(child: Text(profileImageUrl))
         ],
       ),
     );

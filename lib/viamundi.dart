@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:viammundi_frontend/modules/route/presentation/bloc/router_provider.dart';
 import 'modules/profile/presentation/bloc/user_state.dart';
 import 'modules/route/presentation/bloc/selected_option_provider.dart';
 import 'modules/route/data/services/map.api.dart';
@@ -30,6 +30,9 @@ class MainApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => SelectedOptionProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => RouterState(),
         ),
       ],
       child: MaterialApp(

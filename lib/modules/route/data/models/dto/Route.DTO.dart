@@ -123,3 +123,26 @@ class ResParcialRouteErrDTO {
     );
   }
 }
+
+class ResTotalRouteErrDTO {
+  final int statusCode;
+  final String message;
+  final List<ResParcialRouteDTO>? resTotalRoute;
+
+  ResTotalRouteErrDTO({
+    required this.statusCode,
+    required this.message,
+    this.resTotalRoute,
+  });
+
+  factory ResTotalRouteErrDTO.fromJson(Map<String, dynamic> json) {
+    return ResTotalRouteErrDTO(
+      statusCode: json['status_code'] as int,
+      message: json['message'] as String,
+      resTotalRoute: (json['res_parcial_route'] as List<dynamic>?)
+          ?.map((e) => ResParcialRouteDTO.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+  }
+}
+

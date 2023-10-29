@@ -4,25 +4,38 @@ import 'package:viammundi_frontend/modules/route/presentation/widgets/route_post
 import 'package:viammundi_frontend/modules/route/presentation/widgets/route_stats.dart';
 
 class RoutePostWidget extends StatelessWidget {
-  const RoutePostWidget({super.key});
+  final int likes;
+  final int duration;
+  final int price;
+  final int distance;
+  final int comments;
+
+  const RoutePostWidget({
+    Key? key,
+    required this.likes,
+    required this.duration,
+    required this.price,
+    required this.distance,
+    required this.comments,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
         RoutePostTile(
-          profileImageUrl: 'assets/icons/profile_icon.png',
-          userName: 'Diegod',
+          profileImageUrl: "http://192.168.56.1:4000/images/imgProf/97f11a1f-2ad9-4ec2-98ef-5fa491a46001",
         ),
         RouteCarrouselWidget(),
         RoutePostStats(
-          likes: 10,
-          duration: 10,
-          price: 10,
-          distance: 10,
-          comments: 10,
+          likes: likes,
+          duration: duration,
+          price: price,
+          distance: distance,
+          comments: comments,
         )
       ],
     );
   }
 }
+

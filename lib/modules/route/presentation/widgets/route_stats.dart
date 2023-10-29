@@ -60,7 +60,7 @@ class RoutePostStats extends StatelessWidget {
                   const SizedBox(
                     width: AppSpacing.spacingMedium,
                   ),
-                  Text('$likes'),
+                  Text('$distance'),
                   const SizedBox(
                     width: AppSpacing.spacingSmall,
                   )
@@ -81,7 +81,7 @@ class RoutePostStats extends StatelessWidget {
                   const SizedBox(
                     width: AppSpacing.spacingMedium,
                   ),
-                  Text('$likes'),
+                  Text('$price'),
                   const SizedBox(
                     width: AppSpacing.spacingSmall,
                   )
@@ -102,7 +102,7 @@ class RoutePostStats extends StatelessWidget {
                   const SizedBox(
                     width: AppSpacing.spacingMedium,
                   ),
-                  Text('$likes'),
+                  Text('$duration'),
                   const SizedBox(
                     width: AppSpacing.spacingSmall,
                   )
@@ -123,7 +123,7 @@ class RoutePostStats extends StatelessWidget {
                   const SizedBox(
                     width: AppSpacing.spacingMedium,
                   ),
-                  Text('$likes'),
+                  Text('$comments'),
                   const SizedBox(
                     width: AppSpacing.spacingSmall,
                   )

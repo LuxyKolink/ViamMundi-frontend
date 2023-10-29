@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:viammundi_frontend/modules/profile/data/models/token.model.dart';
 
 Future<TokenJWTModel> login(String email, String password) async {
-  final url = Uri.http('10.153.62.11:4000', '/auth/login');
+  final url = Uri.http('192.168.56.1:4000', '/auth/login');
   print({'email': email, 'password': password});
   final response =
       await http.post(url, body: {'email': email, 'password': password});
@@ -17,7 +17,7 @@ Future<TokenJWTModel> login(String email, String password) async {
 
 Future<TokenJWTModel> register(
     String email, String username, String password) async {
-  final url = Uri.http('10.153.62.11:4000', '/auth/register');
+  final url = Uri.http('192.168.56.1:4000', '/auth/register');
   print(url);
   print({'email': email, 'user_name': username, 'password': password});
   final response = await http.post(url,

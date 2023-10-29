@@ -39,7 +39,6 @@ class UserInfoWidget extends StatelessWidget {
               ),
               CustomText(
                 text: username,
-                isBold: true,
               )
             ],
           ),
@@ -67,15 +66,15 @@ class UserInfoWidget extends StatelessWidget {
                                 padding: const EdgeInsets.all(
                                     AppSpacing.spacingExtraSmall),
                                 child: CustomText(
-                                    text: '$followers',
-                                    fontSize: FontSize.fontSizeSmall),
+                                  text: '$followers',
+                                ),
                               ),
                               const Padding(
                                 padding: EdgeInsets.all(
                                     AppSpacing.spacingExtraSmall),
                                 child: CustomText(
-                                    text: 'Seguidores',
-                                    fontSize: FontSize.fontSizeSmall),
+                                  text: 'Seguidores',
+                                ),
                               ),
                             ],
                           ),
@@ -86,15 +85,15 @@ class UserInfoWidget extends StatelessWidget {
                                 padding: const EdgeInsets.all(
                                     AppSpacing.spacingExtraSmall),
                                 child: CustomText(
-                                    text: '$followeds',
-                                    fontSize: FontSize.fontSizeSmall),
+                                  text: '$followeds',
+                                ),
                               ),
                               const Padding(
                                 padding: EdgeInsets.all(
                                     AppSpacing.spacingExtraSmall),
                                 child: CustomText(
-                                    text: 'Seguidos',
-                                    fontSize: FontSize.fontSizeSmall),
+                                  text: 'Seguidos',
+                                ),
                               ),
                             ],
                           ),
@@ -105,15 +104,15 @@ class UserInfoWidget extends StatelessWidget {
                                 padding: const EdgeInsets.all(
                                     AppSpacing.spacingExtraSmall),
                                 child: CustomText(
-                                    text: '$routes',
-                                    fontSize: FontSize.fontSizeSmall),
+                                  text: '$routes',
+                                ),
                               ),
                               const Padding(
                                 padding: EdgeInsets.all(
                                     AppSpacing.spacingExtraSmall),
                                 child: CustomText(
-                                    text: 'Rutas',
-                                    fontSize: FontSize.fontSizeSmall),
+                                  text: 'Rutas',
+                                ),
                               )
                             ],
                           ),
@@ -127,8 +126,8 @@ class UserInfoWidget extends StatelessWidget {
                       horizontal: AppSpacing.spacingMedium,
                       vertical: AppSpacing.spacingSmall),
                   child: const CustomText(
-                      text: AppText.loremIpsum,
-                      fontSize: FontSize.fontSizeSmall),
+                    text: AppText.loremIpsum,
+                  ),
                 ),
               ],
             ),

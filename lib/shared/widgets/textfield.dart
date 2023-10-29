@@ -5,11 +5,12 @@ class CustomTextField extends StatelessWidget {
   final String labelText;
   final bool isDesc;
 
-  const CustomTextField(
-      {super.key,
-      required this.controller,
-      required this.labelText,
-      this.isDesc = false});
+  const CustomTextField({
+    super.key,
+    required this.controller,
+    required this.labelText,
+    this.isDesc = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: labelText,
         contentPadding: isDesc
-            ? const EdgeInsets.symmetric(vertical: 20.0)
+            ? const EdgeInsets.symmetric(vertical: 50.0)
             : null, // Ajusta la altura del recuadro
         border: const OutlineInputBorder(), // Opcional: personaliza el borde
       ),

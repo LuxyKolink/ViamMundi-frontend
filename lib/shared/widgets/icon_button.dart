@@ -8,7 +8,7 @@ class CustomIconButton extends StatelessWidget {
     super.key,
     required this.icon,
     required this.onPressed,
-    this.width = 20
+    this.width = 20,
   });
 
   @override

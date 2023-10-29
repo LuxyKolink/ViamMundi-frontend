@@ -7,7 +7,7 @@ class Button extends StatelessWidget {
 
   const Button(
       {super.key,
-      this.width = 200,
+      this.width = 100,
       required this.text,
       required this.onPressed});
 

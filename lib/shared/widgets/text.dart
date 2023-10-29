@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
-import '../resources/colors.dart';
-import '../constants/constants.dart';
 
 class CustomText extends StatelessWidget {
   final String text;
-  final Color textColor;
-  final bool isBold;
-  final double fontSize;
+  final bool isTitle;
 
-  const CustomText(
-      {super.key,
-      required this.text,
-      this.textColor = AppColors.black,
-      this.isBold = false,
-      this.fontSize = FontSize.fontSizeMedium});
+  const CustomText({
+    super.key,
+    required this.text,
+    this.isTitle = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +20,15 @@ class CustomText extends StatelessWidget {
     // return Text(text /*, style: textStyle*/);
     return Text(
       text,
-      style: TextStyle(
-          fontSize: fontSize,
-          fontWeight: isBold ? FontWeight.bold : FontWeight.normal),
+      // style: TextStyle(
+      //   fontSize: fontSize,
+      //   fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+      // ),
+      style: isTitle
+          ? Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Theme.of(context).colorScheme.primary,
+              )
+          : null /*Theme.of(context).textTheme.bodyMedium */,
     );
   }
 }

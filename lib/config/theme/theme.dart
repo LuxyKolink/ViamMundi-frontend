@@ -2,38 +2,38 @@ import 'package:flutter/material.dart';
 import '../../shared/resources/colors.dart';
 import '../../shared/constants/constants.dart';
 
-class AppTheme2 {
-  static ThemeData lightTheme = ThemeData(
-      primaryColor: AppColors.primaryColor,
-      fontFamily: 'Almarai',
-      appBarTheme: const AppBarTheme(
-        color: AppColors.primaryColor,
-        titleTextStyle:
-            TextStyle(color: AppColors.white, fontSize: FontSize.fontSizeLarge),
-      ),
-      textTheme: const TextTheme(
-        titleLarge: TextStyle(
-            color: AppColors.primaryColor,
-            fontSize: FontSize.fontSizeLarge,
-            fontWeight: FontWeight.bold),
-      ),
-      buttonTheme: const ButtonThemeData(
-          buttonColor: AppColors.primaryColor,
-          textTheme: ButtonTextTheme.primary));
-}
-
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
     colorScheme: ColorScheme.fromSwatch().copyWith(
       primary: AppColors.primaryColor,
+      secondary: AppColors.secondaryColor,
     ),
-    textTheme: const TextTheme(bodyMedium: TextStyle(fontFamily: 'Almarai')),
+    fontFamily: 'Almarai',
+    textTheme: const TextTheme(
+      titleLarge: TextStyle(
+        fontSize: FontSize.fontSizeExtraLarge,
+        fontWeight: FontWeight.bold,
+        fontFamily: 'Ceviche_One',
+      ),
+      titleMedium: TextStyle(
+        fontSize: FontSize.fontSizeSmall,
+        fontWeight: FontWeight.bold,
+        fontFamily: 'Almarai',
+      ),
+      bodyMedium: TextStyle(
+        fontFamily: 'Almarai',
+        fontSize: FontSize.fontSizeSmall,
+      ),
+    ),
     appBarTheme: const AppBarTheme(
       titleTextStyle: TextStyle(
         color: AppColors.white,
         fontFamily: 'Ceviche_One',
         fontSize: FontSize.fontSizeLarge,
       ),
+    ),
+    buttonTheme: const ButtonThemeData(
+      textTheme: ButtonTextTheme.primary,
     ),
   );
 }

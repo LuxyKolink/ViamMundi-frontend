@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:viammundi_frontend/modules/profile/data/models/token.model.dart';
-import 'package:viammundi_frontend/modules/profile/data/models/users.model.dart';
-import 'package:viammundi_frontend/modules/profile/data/services/api.client.dart';
+import 'package:viammundi_frontend/modules/profile/presentation/bloc/user_state.dart';
+import 'package:viammundi_frontend/shared/constants/constants.dart';
 import '../../../../shared/widgets/button.dart';
 import '../../../../shared/widgets/text.dart';
 import '../../../../shared/widgets/textbutton.dart';
 import '../../../../shared/widgets/textformfield.dart';
-import 'package:viammundi_frontend/shared/resources/colors.dart';
-import 'package:viammundi_frontend/shared/constants/constants.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -17,28 +16,29 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  late final TextEditingController _username;
+  late final TextEditingController _email;
   late final TextEditingController _password;
   TokenJWTModel? _tokenJWTModel;
 
   String? errorMesagge = "";
 
   Future<void> _login() async {
-    final email = _username.text;
+    final email = _email.text;
     final password = _password.text;
 
     try {
-      final result = await login(email, password);
-      print('hola');
-      print(result.tokenJWT);
-      setState(() {
-        _tokenJWTModel = result;
-      });
-      Navigator.pushNamed(context, '/home');
+      UserState userState = Provider.of<UserState>(context, listen: false);
+      final result = await userState.loginProvider(email, password);
+
+      //if acá
+      if (result) {
+        Navigator.pushNamed(context, '/');
+      } else {
+        setState(() {
+          errorMesagge = "credenciales incorrectas";
+        });
+      }
     } catch (e) {
-      setState(() {
-        errorMesagge = "credenciales incorrectas";
-      });
       // Manejar errores aquí, por ejemplo, mostrar un mensaje de error.
       print('Error al iniciar sesión: $e');
     }
@@ -46,14 +46,14 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void initState() {
-    _username = TextEditingController();
+    _email = TextEditingController();
     _password = TextEditingController();
     super.initState();
   }
 
   @override
   void dispose() {
-    _username.dispose();
+    _email.dispose();
     _password.dispose();
     super.dispose();
   }
@@ -68,15 +68,14 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const CustomText(
-              text: 'Login',
-              fontSize: FontSize.fontSizeLarge,
-              textColor: AppColors.primaryColor,
-              isBold: true,
+              text: 'ViamMundi',
+              isTitle: true,
             ),
+            const SizedBox(height: AppSpacing.spacingExtraLarge),
             Padding(
               padding: const EdgeInsets.all(16),
               child: CustomTextFormField(
-                controller: _username,
+                controller: _email,
                 labelText: 'Usuario',
               ),
             ),
@@ -87,14 +86,9 @@ class _LoginPageState extends State<LoginPage> {
                 labelText: 'Contraseña',
               ),
             ),
-            const CustomText(
-              text: 'Huella',
-              isBold: true,
-              fontSize: FontSize.fontSizeLarge,
-              textColor: AppColors.primaryColor,
-            ),
+            const SizedBox(height: AppSpacing.spacingMedium),
             Padding(
-              padding: const EdgeInsets.all(4),
+              padding: const EdgeInsets.all(0),
               child: CustomTextButton(
                 text: 'Registrarse',
                 onPressed: () {
@@ -103,20 +97,27 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(4),
+              padding: const EdgeInsets.all(0),
               child: CustomTextButton(
                 text: 'Recuperar Contraseña',
                 onPressed: () {},
               ),
             ),
+            const SizedBox(height: AppSpacing.spacingLarge),
             Padding(
-              padding: const EdgeInsets.all(4),
+              padding: const EdgeInsets.all(0),
               child: Button(text: 'Entrar', onPressed: _login),
             ),
-            if (_tokenJWTModel == null)
-              Padding(
-                  padding: const EdgeInsets.all(4),
-                  child: Text('$errorMesagge')),
+            Padding(
+              padding: const EdgeInsets.all(0),
+              child: CustomTextButton(
+                text: 'Regresar',
+                onPressed: () {
+                  Navigator.pushNamed(context, '/');
+                },
+              ),
+            ),
+            if (_tokenJWTModel == null) Text('$errorMesagge'),
           ],
         ),
       ),

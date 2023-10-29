@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../../shared/constants/constants.dart';
-import '../../../../shared/resources/colors.dart';
 import '../../../../shared/widgets/button.dart';
 import '../../../../shared/widgets/text.dart';
 import '../../../../shared/widgets/textfield.dart';
@@ -54,13 +52,11 @@ class _BrowserPageState extends State<BrowserPage> {
         padding: const EdgeInsets.all(8),
         child: Form(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const CustomText(
                 text: 'Buscador',
-                fontSize: FontSize.fontSizeLarge,
-                textColor: AppColors.primaryColor,
-                isBold: true,
+                isTitle: true,
               ),
               Padding(
                 padding: const EdgeInsets.all(16),

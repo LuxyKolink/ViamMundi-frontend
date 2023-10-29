@@ -1,5 +1,3 @@
-import 'package:viammundi_frontend/modules/profile/business/entities/user_entity.dart';
-
 import '../repositories/auth_repository.dart';
 
 class GetUser {

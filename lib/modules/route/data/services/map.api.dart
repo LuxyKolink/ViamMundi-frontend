@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
-import 'dart:math' show cos, sqrt, asin;
+// import 'dart:math' show cos, sqrt, asin;
 
 import 'package:viammundi_frontend/shared/resources/map.utils.dart';
 
@@ -21,21 +21,20 @@ class MapController extends ChangeNotifier {
       pointroutes.add(LatLng(pos.latitude, pos.longitude));
     } else {
       LatLng lastPoint = pointroutes.last;
-      double distance = Geolocator.distanceBetween(lastPoint.latitude, lastPoint.longitude, pos.latitude, pos.longitude);
+      double distance = Geolocator.distanceBetween(
+          lastPoint.latitude, lastPoint.longitude, pos.latitude, pos.longitude);
 
       print(distance);
 
       if (distance >= 1) {
         pointroutes.add(LatLng(pos.latitude, pos.longitude));
       }
-      
+
       if (parar) {
         a.cancel();
       }
     }
   }
-
-  
 
   suscribePosition() async {
     Timer.periodic(const Duration(seconds: 3), getPos);

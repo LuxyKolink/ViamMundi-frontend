@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-// import 'package:image_picker/image_picker.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
+import 'package:viammundi_frontend/modules/route/presentation/bloc/selected_option_provider.dart';
 import 'package:viammundi_frontend/modules/route/presentation/widgets/checkpoint_list_widget.dart';
 import 'package:viammundi_frontend/shared/constants/constants.dart';
 import 'package:viammundi_frontend/shared/resources/colors.dart';
@@ -13,6 +17,8 @@ class InProgressRoutePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var selectedState = context.watch<SelectedOptionProvider>();
+
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +67,16 @@ class InProgressRoutePage extends StatelessWidget {
                       height: 75,
                       width: 75,
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          final returnedImage = await ImagePicker()
+                              .pickImage(source: ImageSource.camera);
+                          if (returnedImage != null) {
+                            File imageFile = File(returnedImage.path);
+                            selectedState.setImage(imageFile);
+                            if (!context.mounted) return;
+                            Navigator.pushNamed(context, '/addcheckpoint');
+                          }
+                        },
                         icon: const Icon(
                           Icons.camera_alt,
                           color: AppColors.white,
@@ -79,7 +94,16 @@ class InProgressRoutePage extends StatelessWidget {
                       height: 75,
                       width: 75,
                       child: CustomIconButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          final returnedImage = await ImagePicker()
+                              .pickImage(source: ImageSource.gallery);
+                          if (returnedImage != null) {
+                            File imageFile = File(returnedImage.path);
+                            selectedState.setImage(imageFile);
+                            if (!context.mounted) return;
+                            Navigator.pushNamed(context, '/addcheckpoint');
+                          }
+                        },
                         icon: const Icon(
                           Icons.add,
                           color: AppColors.white,
@@ -127,8 +151,4 @@ class InProgressRoutePage extends StatelessWidget {
       ),
     );
   }
-
-  // Future _pickImageFromGallery() async {
-  //   final returnedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
-  // }
 }

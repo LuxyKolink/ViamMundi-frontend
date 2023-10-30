@@ -19,16 +19,23 @@
 // )
 
 import 'package:flutter/material.dart';
+import 'package:viammundi_frontend/modules/route/data/models/dto/CheckPoint.DTO.dart';
 import 'package:viammundi_frontend/shared/resources/colors.dart';
 
 class RouteCarrouselWidget extends StatefulWidget {
-  const RouteCarrouselWidget({super.key});
+    final List<ResParcialCheckPointDTO> listCheckpoints;
+  const RouteCarrouselWidget({
+    super.key,
+    required this.listCheckpoints,
+  });
 
   @override
   State<RouteCarrouselWidget> createState() => _RouteCarrouselWidgetState();
 }
 
 class _RouteCarrouselWidgetState extends State<RouteCarrouselWidget> {
+
+
   @override
   Widget build(BuildContext context) {
     final PageController controller = PageController();
@@ -37,20 +44,23 @@ class _RouteCarrouselWidgetState extends State<RouteCarrouselWidget> {
       child: PageView(
         scrollBehavior: const MaterialScrollBehavior(),
         controller: controller,
-        children: <Widget>[
-          Image.asset(
-            'assets/temp/img1.jpg',
+        children: widget.listCheckpoints.map((checkpoint) {
+          var stringid = checkpoint.id;
+          return Image.network(
+            "http://192.168.1.10:8000/checkpoint/streamFile/$stringid",
             fit: BoxFit.cover,
-          ),
-          Container(
-            color: getRandomColor(),
-            child: const Center(child: Text('2')),
-          ),
-          Container(
-            color: getRandomColor(),
-            child: const Center(child: Text('3')),
-          )
-        ],
+          );
+        }).toList(),
+        // children: <Widget>[
+        //   Image.asset(
+        //     'assets/temp/img1.jpg',
+        //     fit: BoxFit.cover,
+        //   ),
+        //   Image.asset(
+        //     'assets/temp/img1.jpg',
+        //     fit: BoxFit.cover,
+        //   ),
+        // ],
       ),
     );
   }

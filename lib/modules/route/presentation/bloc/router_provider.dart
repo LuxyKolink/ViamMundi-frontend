@@ -7,9 +7,9 @@ class RouterState extends ChangeNotifier {
   List<ResParcialRouteDTO>? rutasTotales;
   Exception? error;
 
-  Future<bool> getRouteProvider(int ID) async {
+  Future<bool> getRouteProvider(int id) async {
     try {
-      final route = await getRoute(ID);
+      final route = await getRoute(id);
       routeParcial = route.resParcialRoute;
       error = null;
       notifyListeners();

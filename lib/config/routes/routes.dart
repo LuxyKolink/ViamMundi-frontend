@@ -14,7 +14,7 @@ Map<String, WidgetBuilder> getRoutes() {
     /*Routes*/
     '/': (context) => const Home(),
     '/browser': (context) => const BrowserPage(),
-    '/feed': (context) => const FeedContentPage(),
+    '/feed': (context) =>  FeedContentPage(),
     '/createroute': (context) => const CreateRoutePage(),
     '/progress': (context) => const InProgressRoutePage(),
     /*Users*/

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:viammundi_frontend/modules/route/presentation/pages/prueba.dart';
 import '../pages/feed.dart';
 
 class TabBarWidget extends StatelessWidget {
@@ -10,7 +11,7 @@ class TabBarWidget extends StatelessWidget {
       FeedContentPage(),
       FeedContentPage(),
       FeedContentPage(),
-      FeedContentPage(),
+      MyWidget()
     ]);
   }
 }

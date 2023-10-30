@@ -7,7 +7,7 @@ import 'package:viammundi_frontend/shared/constants/constants.dart';
 import '../widgets/route_post.dart';
 
 class FeedContentPage extends StatefulWidget {
-  const FeedContentPage({super.key});
+  FeedContentPage({super.key});
 
   @override
   State<FeedContentPage> createState() => _FeedContentPageState();
@@ -37,6 +37,9 @@ class _FeedContentPageState extends State<FeedContentPage> {
                 likes: rutasTotales[index].likes,
                 comments: rutasTotales[index].likes,
                 price: rutasTotales[index].priceRoute,
+                idUser: rutasTotales[index].userID,
+                listCheckpoints: rutasTotales[index].listCheckPoints,
+                nameRoute: rutasTotales[index].nameRoute,
               );
             },
           )

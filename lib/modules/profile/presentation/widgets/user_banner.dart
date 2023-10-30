@@ -22,9 +22,9 @@ class UserBannerWidget extends StatelessWidget {
             desc: AppText.loremIpsum,
           ),
           UserOptionsWidget(),
-          RoutePostWidget(),
-          RoutePostWidget(),
-          RoutePostWidget(),
+          //RoutePostWidget(),
+          //RoutePostWidget(),
+          //RoutePostWidget(),
         ],
       ),
     );

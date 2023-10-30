@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:viammundi_frontend/modules/route/presentation/bloc/router_provider.dart';
 import 'modules/profile/presentation/bloc/user_state.dart';
-import 'modules/route/presentation/bloc/selected_option_provider.dart';
-import 'modules/route/data/services/map.api.dart';
+import 'modules/route/presentation/bloc/router_provider_create.dart';
+import 'modules/route/presentation/bloc/map.api.dart';
 import './config/routes/routes.dart';
 import './config/theme/theme.dart';
 import 'modules/skeleton/bloc/selected_provider.dart';
@@ -29,7 +29,7 @@ class MainApp extends StatelessWidget {
           create: (context) => UserState(),
         ),
         ChangeNotifierProvider(
-          create: (context) => SelectedOptionProvider(),
+          create: (context) => RouterProviderCreate(),
         ),
         ChangeNotifierProvider(
           create: (context) => RouterState(),

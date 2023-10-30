@@ -1,17 +1,19 @@
+import 'dart:convert';
+
 import './CheckPoint.DTO.dart';
 
 class CompleteRouteDTO {
-  final String userID;
-  final String transportMethod;
-  final String typeRoute;
-  final String nameRoute;
-  final String descriptionRoute;
-  final int durationRoute;
-  final int distanceRoute;
-  final DateTime dateRoute;
-  final String locationRoute;
-  final int priceRoute;
-  final dynamic traceRoute;
+  String userID;
+  String transportMethod;
+  String typeRoute;
+  String nameRoute;
+  String descriptionRoute;
+  int durationRoute;
+  int distanceRoute;
+  DateTime dateRoute;
+  String locationRoute;
+  int priceRoute;
+  JsonCodec traceRoute;
 
   CompleteRouteDTO({
     required this.userID,
@@ -27,6 +29,19 @@ class CompleteRouteDTO {
     required this.traceRoute,
   });
 
+  CompleteRouteDTO.initial()
+      : userID = '',
+        transportMethod = '',
+        typeRoute = '',
+        nameRoute = '',
+        descriptionRoute = '',
+        durationRoute = 0,
+        distanceRoute = 0,
+        dateRoute = DateTime.now(),
+        locationRoute = '',
+        priceRoute = 0,
+        traceRoute = JsonCodec();
+
   factory CompleteRouteDTO.fromJson(Map<String, dynamic> json) {
     return CompleteRouteDTO(
       userID: json['user_id'] as String,
@@ -39,7 +54,7 @@ class CompleteRouteDTO {
       dateRoute: DateTime.parse(json['date_route']),
       locationRoute: json['location_route'] as String,
       priceRoute: json['price_route'] as int,
-      traceRoute: json['trace_route'],
+      traceRoute: json['trace_route'] as JsonCodec,
     );
   }
 }
@@ -75,6 +90,7 @@ class ResParcialRouteDTO {
   final int priceRoute;
   final int likes;
   final List<ResParcialCheckPointDTO> listCheckPoints;
+  final String nameRoute;
 
   ResParcialRouteDTO({
     required this.id,
@@ -84,11 +100,13 @@ class ResParcialRouteDTO {
     required this.priceRoute,
     required this.likes,
     required this.listCheckPoints,
+    required this.nameRoute,
   });
 
   factory ResParcialRouteDTO.fromJson(Map<String, dynamic> json) {
     var list = json['list_checkpoints'] as List;
-    List<ResParcialCheckPointDTO> checkPointsList = list.map((e) => ResParcialCheckPointDTO.fromJson(e)).toList();
+    List<ResParcialCheckPointDTO> checkPointsList =
+        list.map((e) => ResParcialCheckPointDTO.fromJson(e)).toList();
 
     return ResParcialRouteDTO(
       id: json['id'] as int,
@@ -98,6 +116,7 @@ class ResParcialRouteDTO {
       priceRoute: json['price_route'] as int,
       likes: json['likes'] as int,
       listCheckPoints: checkPointsList,
+      nameRoute: json['name_route'] as String,
     );
   }
 }

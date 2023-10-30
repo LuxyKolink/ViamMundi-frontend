@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:viammundi_frontend/modules/route/data/services/map.api.dart';
+import 'package:viammundi_frontend/modules/route/presentation/bloc/map.api.dart';
 import 'package:viammundi_frontend/shared/widgets/button.dart';
 
 class ProgressRoutePage extends StatefulWidget {

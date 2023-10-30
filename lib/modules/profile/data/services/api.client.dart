@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:typed_data';
 import 'package:http/http.dart' as http;
+import 'package:viammundi_frontend/modules/profile/data/models/dto/dto_image_profile_model.dart';
 import 'package:viammundi_frontend/modules/profile/data/models/token.model.dart';
 
 Future<TokenJWTModel> login(String email, String password) async {
@@ -25,6 +27,21 @@ Future<TokenJWTModel> register(
   print(response.statusCode);
   if (response.statusCode == 201) {
     return TokenJWTModel.fromJson(jsonDecode(response.body));
+  } else {
+    print("paso por acá");
+    throw Exception('Failed to register');
+  }
+}
+
+Future <imgProfileDTO?> imgProfile(String rutaTotal) async{
+  final url = Uri.http(rutaTotal);
+  print(url);
+  final response = await http.get(url);
+  print(response.statusCode);
+  if (response.statusCode == 201) {
+    final List<int> bytes = response.bodyBytes;
+    print(response.body);
+    return imgProfileDTO(imageBytes: Uint8List.fromList(bytes));;
   } else {
     print("paso por acá");
     throw Exception('Failed to register');

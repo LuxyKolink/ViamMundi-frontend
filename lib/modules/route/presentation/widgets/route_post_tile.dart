@@ -4,10 +4,12 @@ import 'package:viammundi_frontend/shared/widgets/circle_avatar.dart';
 
 class RoutePostTile extends StatelessWidget {
   final String profileImageUrl;
+  final String nameRoute;
 
   const RoutePostTile({
     super.key,
     required this.profileImageUrl,
+    required this.nameRoute,
   });
 
   @override
@@ -17,15 +19,15 @@ class RoutePostTile extends StatelessWidget {
       alignment: Alignment.center,
       child: Row(
         children: [
-          const SizedBox(
-            width: 30,
-            height: 30,
-            child: CircleAvatarWidget(),
+          SizedBox(
+            width: 40,
+            height: 40,
+            child: CircleAvatarWidget(profileImageUrl:profileImageUrl),
           ),
           const SizedBox(
             width: AppSpacing.spacingSmall,
           ),
-          Expanded(child: Text(profileImageUrl))
+          Expanded(child: Text(nameRoute ?? "hola"))
         ],
       ),
     );

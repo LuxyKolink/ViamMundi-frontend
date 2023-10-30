@@ -3,7 +3,6 @@ import 'package:viammundi_frontend/modules/profile/presentation/widgets/user_inf
 import 'package:viammundi_frontend/modules/profile/presentation/widgets/user_options.dart';
 
 import '../../../../shared/constants/constants.dart';
-import '../../../route/presentation/widgets/route_post.dart';
 
 class UserBannerWidget extends StatelessWidget {
   const UserBannerWidget({super.key});

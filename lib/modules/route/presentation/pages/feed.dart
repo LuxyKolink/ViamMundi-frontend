@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:viammundi_frontend/modules/route/data/models/dto/Route.DTO.dart';
 import 'package:viammundi_frontend/modules/route/presentation/bloc/router_provider.dart';
-import 'package:viammundi_frontend/shared/constants/constants.dart';
 
 import '../widgets/route_post.dart';
 
@@ -22,11 +21,10 @@ class _FeedContentPageState extends State<FeedContentPage> {
 
   @override
   Widget build(BuildContext context) {
-
     List<ResParcialRouteDTO>? rutasTotales =
         Provider.of<RouterState>(context).rutasTotales;
 
-  print(rutasTotales?[0].distanceRoute);
+    print(rutasTotales?[0].distanceRoute);
     return rutasTotales != null && rutasTotales.isNotEmpty
         ? ListView.builder(
             itemCount: rutasTotales.length,
@@ -43,7 +41,7 @@ class _FeedContentPageState extends State<FeedContentPage> {
               );
             },
           )
-        : Center(
+        : const Center(
             child: Text('No hay rutas disponibles'),
           );
   }

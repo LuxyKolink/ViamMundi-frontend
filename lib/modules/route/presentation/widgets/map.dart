@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:viammundi_frontend/modules/route/presentation/bloc/map.api.dart';
-import 'package:viammundi_frontend/shared/resources/map.utils.dart';
+import 'package:viammundi_frontend/shared/resources/colors.dart';
+
+import '../bloc/map.api.dart';
+
 
 class Maps extends StatefulWidget {
   const Maps({Key? key}) : super(key: key);
@@ -20,9 +22,8 @@ class _MapsState extends State<Maps> {
     List<LatLng> pointList = Provider.of<MapController>(context).pointroutes;
     CameraPosition cameraInitial =
         Provider.of<MapController>(context).cameraPosition;
-         Provider.of<MapController>(context).addCurrentLocationMarker("initialPosition");
     Set<Marker> markers =
-        Provider.of<MapController>(context).markers;
+        Provider.of<MapController>(context ).markers;
 
 
     return GoogleMap(
@@ -32,7 +33,7 @@ class _MapsState extends State<Maps> {
       //markers: _mapController.markers,
       markers: markers,
       polylines: {
-        Polyline(points: pointList, polylineId: const PolylineId("ruta cosa"))
+        Polyline(points: pointList, polylineId: const PolylineId("ruta cosa"), color: AppColors.primaryColor)
       },
       zoomGesturesEnabled: true,
       zoomControlsEnabled: true,

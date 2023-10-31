@@ -1,11 +1,15 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:viammundi_frontend/modules/route/presentation/bloc/router_provider.dart';
+import 'package:viammundi_frontend/modules/route/presentation/bloc/checkpoint_provider_create.dart';
+
+import 'config/routes/routes.dart';
+import 'config/theme/theme.dart';
 import 'modules/profile/presentation/bloc/user_state.dart';
-import 'modules/route/presentation/bloc/router_provider_create.dart';
 import 'modules/route/presentation/bloc/map.api.dart';
-import './config/routes/routes.dart';
-import './config/theme/theme.dart';
+import 'modules/route/presentation/bloc/router_provider.dart';
+import 'modules/route/presentation/bloc/router_provider_create.dart';
 import 'modules/skeleton/bloc/selected_provider.dart';
 
 void main() {
@@ -33,6 +37,9 @@ class MainApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => RouterState(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CheckPointProviderCreate(),
         ),
       ],
       child: MaterialApp(

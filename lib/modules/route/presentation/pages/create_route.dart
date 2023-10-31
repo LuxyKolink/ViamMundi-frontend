@@ -27,18 +27,24 @@ class _CreateRoutePageState extends State<CreateRoutePage> {
 
   void _determinePosition() async {
     await Provider.of<MapController>(context, listen: false).getUserLocation();
-
     setState(() {
       _isLoading = false;
     });
+    
+  }
+
+  void _addFirstMarker() async{
+    await Provider.of<MapController>(context, listen: false).addCurrentLocationMarker("initialPosition");
   }
 
   @override
   void initState() {
     obtenerGps();
+    
     super.initState();
+    _addFirstMarker();
     _determinePosition();
-    currentTime = "";
+    
     currentTime = getCurrentTime();
     timer =
         Timer.periodic(Duration(seconds: 1), (Timer t) => _getCurrentTime());

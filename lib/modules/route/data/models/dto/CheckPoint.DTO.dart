@@ -1,8 +1,10 @@
+import 'dart:convert';
+
 class ReqCompleteCheckPointDTO {
-  final String name;
-  final String description;
-  final Map<String, dynamic> coordinates;
-  final int routeId;
+  String name;
+  String description;
+  String coordinates;
+  int routeId;
 
   ReqCompleteCheckPointDTO({
     required this.name,
@@ -11,11 +13,17 @@ class ReqCompleteCheckPointDTO {
     required this.routeId,
   });
 
+  ReqCompleteCheckPointDTO.initial()
+      : name = '',
+        description = '',
+        coordinates = '',
+        routeId = 0;
+
   factory ReqCompleteCheckPointDTO.fromJson(Map<String, dynamic> json) {
     return ReqCompleteCheckPointDTO(
       name: json['name'] as String,
       description: json['description'] as String,
-      coordinates: json['coordinates'] as Map<String, dynamic>,
+      coordinates: json['coordinates'] as  String,
       routeId: json['route_id'] as int,
     );
   }

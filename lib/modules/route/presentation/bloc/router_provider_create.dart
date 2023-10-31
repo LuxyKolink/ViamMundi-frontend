@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -22,6 +24,11 @@ class RouterProviderCreate extends ChangeNotifier {
     notifyListeners();
   }
 
+  void changeHourFinal(int newVal) {
+    rutaCompleta.durationRoute = newVal;
+    notifyListeners();
+  }
+
   void changeDate(DateTime newVal) {
     rutaCompleta.dateRoute = newVal;
     notifyListeners();
@@ -32,16 +39,6 @@ class RouterProviderCreate extends ChangeNotifier {
     notifyListeners();
   }
 
-  void calculateDistance(LatLng start, LatLng end) async {
-    double distanceInMeters = await Geolocator.distanceBetween(
-      start.latitude,
-      start.longitude,
-      end.latitude,
-      end.longitude,
-    );
-    rutaCompleta.distanceRoute = distanceInMeters.toInt();
-    notifyListeners();
-  }
 
   void calculateHourDifference(DateTime startTime, DateTime endTime) {
     int differenceInHours = endTime.difference(startTime).inHours;
@@ -71,6 +68,11 @@ class RouterProviderCreate extends ChangeNotifier {
 
   void changeTraceRoute(String traceRoute) {
     rutaCompleta.typeRoute = traceRoute;
+    notifyListeners();
+  }
+
+  void changeDistanceTotal(double distanceTotal) {
+    rutaCompleta.distanceRoute = distanceTotal.toInt();
     notifyListeners();
   }
 }

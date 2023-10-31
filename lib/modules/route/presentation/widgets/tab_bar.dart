@@ -11,7 +11,7 @@ class TabBarWidget extends StatelessWidget {
       FeedContentPage(),
       FeedContentPage(),
       FeedContentPage(),
-      MyWidget()
+      FeedContentPage(),
     ]);
   }
 }

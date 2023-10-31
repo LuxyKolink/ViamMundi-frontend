@@ -11,7 +11,10 @@ class MapController extends ChangeNotifier {
   final List<LatLng> pointroutes = [];
   final Set<Marker> markers = {};
   late CameraPosition cameraPosition;
+  late final Marker initialPosition;
   
+  Marker? currentMarker;
+
   //variable para parar tomar los puntos
   var parar = false;
 
@@ -33,7 +36,7 @@ class MapController extends ChangeNotifier {
 
       if (distance >= 1) {
         pointroutes.add(LatLng(pos.latitude, pos.longitude));
-         notifyListeners();
+        notifyListeners();
       }
 
       if (parar) {
@@ -64,20 +67,44 @@ class MapController extends ChangeNotifier {
     notifyListeners();
   }
 
-  //
-  void addCurrentLocationMarker(String markerIdString) async {
+  //añadir un marcador
+  addCurrentLocationMarker(String markerIdString) async {
     var pos = await Geolocator.getCurrentPosition();
-
     final MarkerId markerId = MarkerId(markerIdString);
     final Marker marker = Marker(
       markerId: markerId,
       position: LatLng(pos.latitude, pos.longitude),
       infoWindow: InfoWindow(title: markerIdString),
     );
+    print("aqui en curso");
+    print(marker);
 
     markers.add(marker);
+    currentMarker = null;
+    currentMarker = marker;
     notifyListeners();
   }
-  
 
+  //calcular la distancia total
+  double calculateTotalDistance(List<LatLng> pointroutes) {
+    double totalDistance = 0;
+
+    for (var i = 0; i < pointroutes.length - 1; i++) {
+      var start = pointroutes[i];
+      var end = pointroutes[i + 1];
+
+      var distance = Geolocator.distanceBetween(
+        start.latitude,
+        start.longitude,
+        end.latitude,
+        end.longitude,
+      );
+
+      totalDistance += distance;
+    }
+     
+    print(totalDistance.toString() + "distancia acumulada");
+    //acá guardar la distancia total en metros
+    return totalDistance;
+  }
 }

@@ -123,9 +123,9 @@ class _InProgressRoutePageState extends State<InProgressRoutePage> {
                       child: CustomText(text: currentTime),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(AppSpacing.spacingSmall),
+                      padding: const EdgeInsets.all(AppSpacing.spacingSmall),
                       ///////////////////////////////////////
-                      child: CustomText(text: "$distanceTotal"),
+                      child: CustomText(text: distanceTotal),
                     )
                   ],
                 ),

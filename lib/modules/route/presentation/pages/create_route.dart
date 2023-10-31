@@ -30,21 +30,21 @@ class _CreateRoutePageState extends State<CreateRoutePage> {
     setState(() {
       _isLoading = false;
     });
-    
   }
 
-  void _addFirstMarker() async{
-    await Provider.of<MapController>(context, listen: false).addCurrentLocationMarker("initialPosition");
+  void _addFirstMarker() async {
+    await Provider.of<MapController>(context, listen: false)
+        .addCurrentLocationMarker("initialPosition");
   }
 
   @override
   void initState() {
     obtenerGps();
-    
+
     super.initState();
     _addFirstMarker();
     _determinePosition();
-    
+
     currentTime = getCurrentTime();
     timer =
         Timer.periodic(Duration(seconds: 1), (Timer t) => _getCurrentTime());
@@ -73,7 +73,6 @@ class _CreateRoutePageState extends State<CreateRoutePage> {
         context.watch<RouterProviderCreate>().rutaCompleta.transportMethod;
     var selectedAmbient =
         context.watch<RouterProviderCreate>().rutaCompleta.typeRoute;
-
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -109,31 +108,34 @@ class _CreateRoutePageState extends State<CreateRoutePage> {
               children: [
                 OptionSelectIcon(
                   icon: const Icon(Icons.pedal_bike),
-                  isSelected: selectedTransport == "1" ? true : false,
+                  isSelected: selectedTransport == "Bicicleta" ? true : false,
                   onPressed: () {
                     Provider.of<RouterProviderCreate>(context, listen: false)
-                        .changeTransport("1");
+                        .changeTransport("Bicicleta");
                   },
                 ),
                 OptionSelectIcon(
-                  isSelected: selectedTransport == "2" ? true : false,
+                  icon: const Icon(Icons.directions_car),
+                  isSelected: selectedTransport == "Carro" ? true : false,
                   onPressed: () {
                     Provider.of<RouterProviderCreate>(context, listen: false)
-                        .changeTransport("2");
+                        .changeTransport("Carro");
                   },
                 ),
                 OptionSelectIcon(
-                  isSelected: selectedTransport == "3" ? true : false,
+                  icon: const Icon(Icons.motorcycle),
+                  isSelected: selectedTransport == "Moto" ? true : false,
                   onPressed: () {
                     Provider.of<RouterProviderCreate>(context, listen: false)
-                        .changeTransport("3");
+                        .changeTransport("Moto");
                   },
                 ),
                 OptionSelectIcon(
-                  isSelected: selectedTransport == "4" ? true : false,
+                  icon: const Icon(Icons.directions_run),
+                  isSelected: selectedTransport == "A pie" ? true : false,
                   onPressed: () {
                     Provider.of<RouterProviderCreate>(context, listen: false)
-                        .changeTransport("4");
+                        .changeTransport("A pie");
                   },
                 ),
               ],
@@ -156,17 +158,19 @@ class _CreateRoutePageState extends State<CreateRoutePage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 OptionSelectIcon(
-                  isSelected: selectedAmbient == "1" ? true : false,
+                  icon: const Icon(Icons.apartment),
+                  isSelected: selectedAmbient == "Ciudad" ? true : false,
                   onPressed: () {
                     Provider.of<RouterProviderCreate>(context, listen: false)
-                        .changeAmbient("1");
+                        .changeAmbient("Ciudad");
                   },
                 ),
                 OptionSelectIcon(
-                  isSelected: selectedAmbient == "2" ? true : false,
+                  icon: const Icon(Icons.forest),
+                  isSelected: selectedAmbient == "Rural" ? true : false,
                   onPressed: () {
                     Provider.of<RouterProviderCreate>(context, listen: false)
-                        .changeAmbient("2");
+                        .changeAmbient("Rural");
                   },
                 ),
               ],
@@ -179,8 +183,9 @@ class _CreateRoutePageState extends State<CreateRoutePage> {
             text: 'Iniciar',
             onPressed: () {
               Provider.of<RouterProviderCreate>(context, listen: false)
-                        .changeHour(DateTime.now());
-              Provider.of<MapController>(context, listen: false).suscribePosition();
+                  .changeHour(DateTime.now());
+              Provider.of<MapController>(context, listen: false)
+                  .suscribePosition();
               Navigator.pushNamed(context, '/progress');
             },
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:viammundi_frontend/modules/profile/data/models/token.model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -31,8 +32,6 @@ class UserState extends ChangeNotifier {
     try {
       final tokenModel = await register(email, username, password);
       print(tokenModel);
-      final prefs = await SharedPreferences.getInstance();
-      prefs.setString('accessToken', tokenModel.tokenJWT);
       token = tokenModel;
       error = null;
       notifyListeners();
@@ -59,5 +58,9 @@ class UserState extends ChangeNotifier {
       notifyListeners();
       return false;
     }
+  }
+
+  String tokenToString(TokenJWTModel token) {
+    return token.tokenJWT;
   }
 }

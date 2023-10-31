@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:viammundi_frontend/modules/profile/presentation/bloc/user_state.dart';
+import 'package:viammundi_frontend/modules/profile/presentation/widgets/radio_list_tile_widget.dart';
 import 'package:viammundi_frontend/shared/constants/constants.dart';
 import '../../../skeleton/bloc/selected_provider.dart';
 import '../../../skeleton/widgets/appbar.dart';
@@ -110,19 +111,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   labelText: 'Confirmar Contraseña',
                 ),
               ),
-              CustomTextButton(
-                text: 'Acepto los terminos y condiciones...(RadioTile)',
-                onPressed: () {},
-              ),
+              const RadioListTileWidget(title: 'Acepto los términos y condiciones'),
               Button(text: 'Entrar', onPressed: _register),
-              Button(
-                text: 'Entrar',
-                onPressed: () {
-                  Navigator.pushNamed(context, '/');
-                  Provider.of<SelectedProvider>(context, listen: false)
-                      .changePage(0);
-                },
-              ),
               // Padding(
               //   padding: const EdgeInsets.all(4),
               //   child: CustomTextButton(

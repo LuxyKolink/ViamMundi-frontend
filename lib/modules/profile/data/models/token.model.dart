@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class TokenJWTModel {
   final String tokenJWT;
 

@@ -27,6 +27,8 @@ class ReqCompleteCheckPointDTO {
       routeId: json['route_id'] as int,
     );
   }
+
+  get multimediaPath => null;
 }
 
 class ResCompleteCheckPointDTO {

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:viammundi_frontend/modules/profile/data/models/token.model.dart';
+import 'package:viammundi_frontend/modules/profile/presentation/bloc/user_state.dart';
+import 'package:viammundi_frontend/modules/profile/presentation/widgets/user_banner.dart';
 import 'package:viammundi_frontend/modules/skeleton/widgets/appbar.dart';
 
 import '../route/presentation/pages/create_route.dart';
@@ -8,9 +11,15 @@ import '../profile/presentation/pages/login.dart';
 import '../skeleton/widgets/bottomtabs.dart';
 import 'bloc/selected_provider.dart';
 
-List<Widget> pages = const [
+List<Widget> loggedPages = const [
   TabBarWidget(),
   CreateRoutePage(),
+  UserBannerWidget(),
+];
+
+List<Widget> pages = const [
+  TabBarWidget(),
+  LoginPage(),
   LoginPage(),
 ];
 
@@ -21,6 +30,7 @@ class Skeleton extends StatelessWidget {
   Widget build(BuildContext context) {
     int selectedPage = Provider.of<SelectedProvider>(context).selectedPage;
     int selectedFilter = Provider.of<SelectedProvider>(context).selectedFilter;
+    TokenJWTModel? token = Provider.of<UserState>(context).token;
 
     if (selectedPage == 0) {
       return DefaultTabController(
@@ -28,15 +38,23 @@ class Skeleton extends StatelessWidget {
         length: 4,
         child: Scaffold(
           appBar: const CustomAppBar(showTabBar: true),
-          body: pages[0],
+          body: loggedPages[0],
           bottomNavigationBar: const BottomNavBar(),
         ),
       );
     }
 
-    return Scaffold(
+    if (token == null) {
+      return Scaffold(
       appBar: const CustomAppBar(),
       body: pages[selectedPage],
+      bottomNavigationBar: const BottomNavBar(),
+    );
+    }
+
+    return Scaffold(
+      appBar: const CustomAppBar(),
+      body: loggedPages[selectedPage],
       bottomNavigationBar: const BottomNavBar(),
     );
   }

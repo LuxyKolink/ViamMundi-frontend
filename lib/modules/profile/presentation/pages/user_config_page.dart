@@ -26,54 +26,56 @@ class _UserConfigPageState extends State<UserConfigPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        const SizedBox(height: AppSpacing.spacingLarge),
-        const CircleAvatarWidget(),
-        CustomTextButton(
-          text: 'Editar',
-          onPressed: () {},
-        ),
-        const SizedBox(height: AppSpacing.spacingMedium),
-        Padding(
-          padding: const EdgeInsets.all(16),
-          child: CustomTextField(
-            controller: _username,
-            labelText: 'Usuario',
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const SizedBox(height: AppSpacing.spacingLarge),
+          const CircleAvatarWidget(),
+          CustomTextButton(
+            text: 'Editar',
+            onPressed: () {},
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(16),
-          child: CustomTextField(
-            controller: _description,
-            labelText: 'Descripción',
-            isDesc: true,
+          const SizedBox(height: AppSpacing.spacingMedium),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: CustomTextField(
+              controller: _username,
+              labelText: 'Usuario',
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Button(
-                text: 'Guardar',
-                onPressed: () {},
-                width: 100,
-              ),
-              Button(
-                text: 'Cancelar',
-                onPressed: () {},
-                width: 100,
-              ),
-            ],
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: CustomTextField(
+              controller: _description,
+              labelText: 'Descripción',
+              isDesc: true,
+            ),
           ),
-        ),
-        CustomTextButton(
-          text: 'Cerrar Sesión',
-          onPressed: () {},
-        ),
-      ],
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Button(
+                  text: 'Guardar',
+                  onPressed: () {},
+                  width: 100,
+                ),
+                Button(
+                  text: 'Cancelar',
+                  onPressed: () {},
+                  width: 100,
+                ),
+              ],
+            ),
+          ),
+          CustomTextButton(
+            text: 'Cerrar Sesión',
+            onPressed: () {},
+          ),
+        ],
+      ),
     );
   }
 }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:viammundi_frontend/shared/constants/constants.dart';
 import 'package:viammundi_frontend/shared/widgets/circle_avatar.dart';
 
+import '../../../../shared/widgets/textbutton.dart';
+
 class RoutePostTile extends StatelessWidget {
   final String profileImageUrl;
   final String nameRoute;
@@ -27,7 +29,9 @@ class RoutePostTile extends StatelessWidget {
           const SizedBox(
             width: AppSpacing.spacingSmall,
           ),
-          Expanded(child: Text(nameRoute))
+          Expanded(child: CustomTextButton(text: nameRoute, onPressed: () {
+            Navigator.pushNamed(context, '/route');
+          },))
         ],
       ),
     );

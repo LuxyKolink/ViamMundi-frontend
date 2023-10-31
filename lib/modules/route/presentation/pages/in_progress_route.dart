@@ -245,8 +245,14 @@ class _InProgressRoutePageState extends State<InProgressRoutePage> {
                     var userProvider = Provider.of<UserState>(
                       context,
                         listen: false);
+
+                    var tokenJwt = Provider.of<UserState>(
+                      context,
+                        listen: false).token;
                     //var tokensito = userProvider.token;
-                    await userProvider.authAuth("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiOTdmMTFhMWYtMmFkOS00ZWMyLTk4ZWYtNWZhNDkxYTQ2MDAxIiwiaWF0IjoxNjk4NzE0OTMwfQ.DhMJlpMZstnzBiW-vXMwYWtwRoHyU6edsLwxA7W2laY");
+                    print(userProvider.tokenToString(tokenJwt!));
+                    var tokenString =  userProvider.tokenToString(tokenJwt);
+                    await userProvider.authAuth(tokenString);
                     print(userProvider.idUser.toString() + "acá está esa verga marica");
                         providerRouter.changeIdUser(userProvider.idUser!);
 

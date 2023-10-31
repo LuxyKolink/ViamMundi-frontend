@@ -55,7 +55,7 @@ class RoutePostStats extends StatelessWidget {
                 children: [
                   CustomIconButton(
                     onPressed: () {},
-                    icon: const Icon(Icons.thumb_up_sharp),
+                    icon: const Icon(Icons.location_on),
                   ),
                   const SizedBox(
                     width: AppSpacing.spacingMedium,
@@ -76,7 +76,7 @@ class RoutePostStats extends StatelessWidget {
                 children: [
                   CustomIconButton(
                     onPressed: () {},
-                    icon: const Icon(Icons.thumb_up_sharp),
+                    icon: const Icon(Icons.payments),
                   ),
                   const SizedBox(
                     width: AppSpacing.spacingMedium,
@@ -97,7 +97,7 @@ class RoutePostStats extends StatelessWidget {
                 children: [
                   CustomIconButton(
                     onPressed: () {},
-                    icon: const Icon(Icons.thumb_up_sharp),
+                    icon: const Icon(Icons.timer),
                   ),
                   const SizedBox(
                     width: AppSpacing.spacingMedium,
@@ -118,7 +118,7 @@ class RoutePostStats extends StatelessWidget {
                 children: [
                   CustomIconButton(
                     onPressed: () {},
-                    icon: const Icon(Icons.thumb_up_sharp),
+                    icon: const Icon(Icons.chat),
                   ),
                   const SizedBox(
                     width: AppSpacing.spacingMedium,

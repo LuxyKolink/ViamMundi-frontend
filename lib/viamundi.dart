@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:viammundi_frontend/modules/route/presentation/bloc/checkpoint_provider.dart';
 import 'package:viammundi_frontend/modules/route/presentation/bloc/checkpoint_provider_create.dart';
 
 import 'config/routes/routes.dart';
@@ -40,6 +41,10 @@ class MainApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => CheckPointProviderCreate(),
+        ),
+        
+        ChangeNotifierProvider(
+          create: (context) => CheckPointState(),
         ),
       ],
       child: MaterialApp(

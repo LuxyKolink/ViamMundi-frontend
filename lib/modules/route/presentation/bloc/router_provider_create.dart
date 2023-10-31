@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -8,6 +9,11 @@ import 'package:viammundi_frontend/modules/route/data/models/dto/Route.DTO.dart'
 class RouterProviderCreate extends ChangeNotifier {
   late CompleteRouteDTO rutaCompleta = CompleteRouteDTO.initial();
   late DateTime horaInicial = DateTime.now();
+
+    reset() {
+    rutaCompleta = CompleteRouteDTO.initial();
+    notifyListeners();
+  }
 
   void changeTransport(String newVal) {
     rutaCompleta.transportMethod = newVal;
@@ -29,10 +35,7 @@ class RouterProviderCreate extends ChangeNotifier {
     notifyListeners();
   }
 
-  void changeDate(DateTime newVal) {
-    rutaCompleta.dateRoute = newVal;
-    notifyListeners();
-  }
+
 
   void changeDescription(String newVal) {
     rutaCompleta.descriptionRoute = newVal;
@@ -78,6 +81,21 @@ class RouterProviderCreate extends ChangeNotifier {
 
   void changeIdUser(String idUser) {
     rutaCompleta.userID = idUser;
+    notifyListeners();
+  }
+
+  void changeName(String name) {
+    rutaCompleta.nameRoute = name;
+    notifyListeners();
+  }
+
+  void changeDesc(String descrip) {
+    rutaCompleta.descriptionRoute = descrip;
+    notifyListeners();
+  }
+
+  void changePric(int price) {
+    rutaCompleta.priceRoute = price;
     notifyListeners();
   }
 }

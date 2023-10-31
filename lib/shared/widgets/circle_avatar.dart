@@ -14,7 +14,7 @@ class CircleAvatarWidget extends StatelessWidget {
       child: CircleAvatar(
         //backgroundColor: Color.fromARGB(0, 28, 203, 142),
         //radius: 55,
-        
+        maxRadius: 35,
         backgroundImage: NetworkImage(profileImageUrl)
             // ? NetworkImage(profileImageUrl!)
             // : const AssetImage('assets/icons/profile_icon.png'),

@@ -2,6 +2,63 @@ import 'dart:convert';
 
 import './CheckPoint.DTO.dart';
 
+// class CompleteRouteDTO {
+//   String userID;
+//   String transportMethod;
+//   String typeRoute;
+//   String nameRoute;
+//   String descriptionRoute;
+//   int durationRoute;
+//   int distanceRoute;
+//   DateTime dateRoute;
+//   String locationRoute;
+//   int priceRoute;
+//   String traceRoute;
+
+//   CompleteRouteDTO({
+//     required this.userID,
+//     required this.transportMethod,
+//     required this.typeRoute,
+//     required this.nameRoute,
+//     required this.descriptionRoute,
+//     required this.durationRoute,
+//     required this.distanceRoute,
+//     required this.dateRoute,
+//     required this.locationRoute,
+//     required this.priceRoute,
+//     required this.traceRoute,
+//   });
+
+//   CompleteRouteDTO.initial()
+//       : userID = '',
+//         transportMethod = '',
+//         typeRoute = '',
+//         nameRoute = '',
+//         descriptionRoute = '',
+//         durationRoute = 0,
+//         distanceRoute = 0,
+//         dateRoute = DateTime.now(),
+//         locationRoute = '',
+//         priceRoute = 0,
+//         traceRoute = "";
+
+//   factory CompleteRouteDTO.fromJson(Map<String, dynamic> json) {
+//     return CompleteRouteDTO(
+//       userID: json['user_id'] as String,
+//       transportMethod: json['transport_method'] as String,
+//       typeRoute: json['type_route'] as String,
+//       nameRoute: json['name_route'] as String,
+//       descriptionRoute: json['description_route'] as String,
+//       durationRoute: json['duration_route'] as int,
+//       distanceRoute: json['distance_route'] as int,
+//       dateRoute: DateTime.parse(json['date_route']),
+//       locationRoute: json['location_route'] as String,
+//       priceRoute: json['price_route'] as int,
+//       traceRoute: json['trace_route'] as String,
+//     );
+//   }
+// }
+
 class CompleteRouteDTO {
   String userID;
   String transportMethod;
@@ -10,7 +67,6 @@ class CompleteRouteDTO {
   String descriptionRoute;
   int durationRoute;
   int distanceRoute;
-  DateTime dateRoute;
   String locationRoute;
   int priceRoute;
   String traceRoute;
@@ -23,7 +79,6 @@ class CompleteRouteDTO {
     required this.descriptionRoute,
     required this.durationRoute,
     required this.distanceRoute,
-    required this.dateRoute,
     required this.locationRoute,
     required this.priceRoute,
     required this.traceRoute,
@@ -37,27 +92,25 @@ class CompleteRouteDTO {
         descriptionRoute = '',
         durationRoute = 0,
         distanceRoute = 0,
-        dateRoute = DateTime.now(),
         locationRoute = '',
         priceRoute = 0,
         traceRoute = "";
 
-  factory CompleteRouteDTO.fromJson(Map<String, dynamic> json) {
-    return CompleteRouteDTO(
-      userID: json['user_id'] as String,
-      transportMethod: json['transport_method'] as String,
-      typeRoute: json['type_route'] as String,
-      nameRoute: json['name_route'] as String,
-      descriptionRoute: json['description_route'] as String,
-      durationRoute: json['duration_route'] as int,
-      distanceRoute: json['distance_route'] as int,
-      dateRoute: DateTime.parse(json['date_route']),
-      locationRoute: json['location_route'] as String,
-      priceRoute: json['price_route'] as int,
-      traceRoute: json['trace_route'] as String,
-    );
-  }
+  Map<String, dynamic> toJson() => {
+        'user_id': userID,
+        'transport_method': transportMethod,
+        'type_route': typeRoute,
+        'name_route': nameRoute,
+        'description_route': descriptionRoute,
+        'duration_route': durationRoute,
+        'distance_route': distanceRoute,
+        'location_route': locationRoute,
+        'price_route': priceRoute,
+        'trace_route': traceRoute,
+      };
 }
+
+
 
 class ResRouteCreateDTO {
   final int id;
@@ -164,4 +217,3 @@ class ResTotalRouteErrDTO {
     );
   }
 }
-

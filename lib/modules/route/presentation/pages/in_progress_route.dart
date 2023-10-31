@@ -256,13 +256,10 @@ class _InProgressRoutePageState extends State<InProgressRoutePage> {
                     //List<File> checkPointsImages
                     //var traceroute_encode = mapNotifier.pointroutes;
                     var traceroute_encode =
-                        mapNotifier.pointroutes.map((point) {
-                      return {
-                        "latitude": point.latitude,
-                        "longitude": point.longitude,
-                      };
-                    }).toList();
-                    var traceroute_json = json.encode(traceroute_encode);
+                        mapNotifier.pointroutes;
+                        print(traceroute_encode);
+                        print("ACAHPTA");
+                    var traceroute_json = '$traceroute_encode';
                     providerRouter.changeTraceRoute(traceroute_json);
                     //RUTA
                     if (ruta_completa_final != null) {
@@ -277,7 +274,6 @@ class _InProgressRoutePageState extends State<InProgressRoutePage> {
                           "durationRoute: ${ruta_completa_final.durationRoute}");
                       print(
                           "distanceRoute: ${ruta_completa_final.distanceRoute}");
-                      print("dateRoute: ${ruta_completa_final.dateRoute}");
                       print(
                           "locationRoute: ${ruta_completa_final.locationRoute}");
                       print("priceRoute: ${ruta_completa_final.priceRoute}");
@@ -296,14 +292,11 @@ class _InProgressRoutePageState extends State<InProgressRoutePage> {
                       print("\n");
                     }
 
-                    print(ruta_completa_final);
-                    print(list_checkpoints_final.toString());
-                    print(list_imagenes_final.toString());
 
                   mapNotifier.dessuscribePosition();
 
 
-                        Navigator.pushNamed(context, '/progress');
+                        Navigator.pushNamed(context, '/resume');
                   },
                   
                 ),

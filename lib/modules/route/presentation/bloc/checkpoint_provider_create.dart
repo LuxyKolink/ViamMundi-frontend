@@ -6,16 +6,22 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:viammundi_frontend/modules/route/data/models/dto/CheckPoint.DTO.dart';
 
 class CheckPointProviderCreate extends ChangeNotifier {
-  late List<ReqCompleteCheckPointDTO> checkPoints =[];
+  late List<ReqCompleteCheckPointDTO> checkPoints = [];
   late ReqCompleteCheckPointDTO currentCheckpoint =
       ReqCompleteCheckPointDTO.initial();
 
-  late List<File> checkPointsImages =[];
+  late List<File> checkPointsImages = [];
   late File? currentImege;
 
-  setCoordinates(Marker? newMarker) {
+  reset() {
+    checkPoints = [];
+    checkPointsImages = [];
+    notifyListeners();
+  }
+
+  setCoordinates(Marker newMarker) {
     JsonCodec jsonCodec = const JsonCodec();
-    var encoded = jsonCodec.encode(newMarker);
+    var encoded = jsonCodec.encode(newMarker.position);
     currentCheckpoint.coordinates = encoded;
     notifyListeners();
   }
@@ -46,13 +52,13 @@ class CheckPointProviderCreate extends ChangeNotifier {
   }
 
   void addCheckPoint(ReqCompleteCheckPointDTO newCheckPoint) {
-  final clonedCheckPoint = ReqCompleteCheckPointDTO(
-    name: newCheckPoint.name,
-    description: newCheckPoint.description,
-    coordinates: newCheckPoint.coordinates,
-    routeId: newCheckPoint.routeId,
-  );
-  checkPoints.add(clonedCheckPoint);
-  notifyListeners();
-}
+    final clonedCheckPoint = ReqCompleteCheckPointDTO(
+      name: newCheckPoint.name,
+      description: newCheckPoint.description,
+      coordinates: newCheckPoint.coordinates,
+      routeId: newCheckPoint.routeId,
+    );
+    checkPoints.add(clonedCheckPoint);
+    notifyListeners();
+  }
 }

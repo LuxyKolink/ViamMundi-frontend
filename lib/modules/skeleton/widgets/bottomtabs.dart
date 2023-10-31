@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../route/presentation/bloc/checkpoint_provider_create.dart';
+import '../../route/presentation/bloc/router_provider_create.dart';
 import '../bloc/selected_provider.dart';
 import '../../../shared/resources/colors.dart';
 
@@ -35,6 +37,8 @@ class BottomNavBar extends StatelessWidget {
       currentIndex: selectedPage,
       selectedItemColor: AppColors.white,
       onTap: (value) {
+        Provider.of<CheckPointProviderCreate>(context, listen: false).reset();
+        Provider.of<RouterProviderCreate>(context, listen: false).reset();
         Provider.of<SelectedProvider>(context, listen: false).changePage(value);
       },
     );

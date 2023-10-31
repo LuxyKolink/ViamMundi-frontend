@@ -21,6 +21,7 @@ class CheckpointTileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
+        textColor: Colors.white,
         title: Text(checkpointName),
         tileColor: AppColors.primaryColor,
         onTap: onTap,

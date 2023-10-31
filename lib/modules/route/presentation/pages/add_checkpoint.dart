@@ -102,7 +102,7 @@ class _AddCheckpointPageState extends State<AddCheckpointPage> {
                     provider.setDescription(_desc.text);
                     provider.setImage(image);
                     await providerMap.addCurrentLocationMarker(_name.text);
-                    provider.setCoordinates(providerMap.currentMarker);
+                    provider.setCoordinates(providerMap.currentMarker!);
                     print(providerMap.markers);
                     print("aca los guardados");
                     print(provider.checkPoints);

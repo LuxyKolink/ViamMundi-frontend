@@ -6,6 +6,7 @@ class RouterState extends ChangeNotifier {
   ResParcialRouteDTO? routeParcial;
   List<ResParcialRouteDTO>? rutasTotales;
   Exception? error;
+  int? IdRutaFinal;
 
   Future<bool> getRouteProvider(int id) async {
     try {
@@ -39,5 +40,21 @@ class RouterState extends ChangeNotifier {
       return null;
     }
   }
-}
 
+  Future<int?> createRouteProvider(CompleteRouteDTO rutaTotal) async {
+    try {
+      print("entro");
+      final idRoute = await createRoute(rutaTotal);
+      print("salio");
+      IdRutaFinal = idRoute;
+      error = null;
+      notifyListeners();
+      return idRoute;
+    } catch (e) {
+      print("hubo un error");
+      error = e as Exception;
+      notifyListeners();
+      return null;
+    }
+  }
+}

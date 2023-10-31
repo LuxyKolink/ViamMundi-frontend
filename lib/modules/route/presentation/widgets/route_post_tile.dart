@@ -9,7 +9,7 @@ class RoutePostTile extends StatelessWidget {
   const RoutePostTile({
     super.key,
     required this.profileImageUrl,
-    required this.nameRoute,
+    this.nameRoute = "kevi",
   });
 
   @override
@@ -27,7 +27,7 @@ class RoutePostTile extends StatelessWidget {
           const SizedBox(
             width: AppSpacing.spacingSmall,
           ),
-          Expanded(child: Text(nameRoute ?? "hola"))
+          Expanded(child: Text(nameRoute))
         ],
       ),
     );

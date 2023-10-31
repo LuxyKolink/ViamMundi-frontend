@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:viammundi_frontend/modules/profile/presentation/bloc/user_state.dart';
 import 'package:viammundi_frontend/modules/route/presentation/bloc/map.api.dart';
 import 'package:viammundi_frontend/modules/route/presentation/widgets/checkpoint_list_widget.dart';
 import 'package:viammundi_frontend/modules/route/presentation/widgets/map.dart';
@@ -94,7 +95,7 @@ class _InProgressRoutePageState extends State<InProgressRoutePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Padding(
-            padding: EdgeInsets.all(AppSpacing.spacingMedium),
+            padding: EdgeInsets.all(AppSpacing.spacingLarge),
             child: Center(
               child: CustomText(
                 text: 'Ruta en Curso',
@@ -207,8 +208,14 @@ class _InProgressRoutePageState extends State<InProgressRoutePage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Button(
-                  text: 'Publicar',
+                  text: 'Cancelar',
                   onPressed: () {
+                    Navigator.pushNamed(context, '/');
+                  },
+                ),
+                Button(
+                  text: 'Resumen',
+                  onPressed: () async {
                     var listPoints =
                         Provider.of<MapController>(context, listen: false)
                             .pointroutes;
@@ -234,6 +241,14 @@ class _InProgressRoutePageState extends State<InProgressRoutePage> {
                         Provider.of<CheckPointProviderCreate>(context,
                                 listen: false)
                             .checkPointsImages;
+
+                    var userProvider = Provider.of<UserState>(
+                      context,
+                        listen: false);
+                    //var tokensito = userProvider.token;
+                    await userProvider.authAuth("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiOTdmMTFhMWYtMmFkOS00ZWMyLTk4ZWYtNWZhNDkxYTQ2MDAxIiwiaWF0IjoxNjk4NzE0OTMwfQ.DhMJlpMZstnzBiW-vXMwYWtwRoHyU6edsLwxA7W2laY");
+                    print(userProvider.idUser.toString() + "acá está esa verga marica");
+                        providerRouter.changeIdUser(userProvider.idUser!);
 
                     //List<LatLng> pointroutes
                     //CompleteRouteDTO rutaCompleta
@@ -284,13 +299,13 @@ class _InProgressRoutePageState extends State<InProgressRoutePage> {
                     print(ruta_completa_final);
                     print(list_checkpoints_final.toString());
                     print(list_imagenes_final.toString());
+
+                  mapNotifier.dessuscribePosition();
+
+
+                        Navigator.pushNamed(context, '/progress');
                   },
-                ),
-                Button(
-                  text: 'Cancelar',
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/');
-                  },
+                  
                 ),
               ],
             ),

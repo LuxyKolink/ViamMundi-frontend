@@ -13,7 +13,7 @@ class CompleteRouteDTO {
   DateTime dateRoute;
   String locationRoute;
   int priceRoute;
-  JsonCodec traceRoute;
+  String traceRoute;
 
   CompleteRouteDTO({
     required this.userID,
@@ -40,7 +40,7 @@ class CompleteRouteDTO {
         dateRoute = DateTime.now(),
         locationRoute = '',
         priceRoute = 0,
-        traceRoute = JsonCodec();
+        traceRoute = "";
 
   factory CompleteRouteDTO.fromJson(Map<String, dynamic> json) {
     return CompleteRouteDTO(
@@ -54,7 +54,7 @@ class CompleteRouteDTO {
       dateRoute: DateTime.parse(json['date_route']),
       locationRoute: json['location_route'] as String,
       priceRoute: json['price_route'] as int,
-      traceRoute: json['trace_route'] as JsonCodec,
+      traceRoute: json['trace_route'] as String,
     );
   }
 }

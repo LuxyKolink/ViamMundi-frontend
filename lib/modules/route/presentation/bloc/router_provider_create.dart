@@ -67,12 +67,17 @@ class RouterProviderCreate extends ChangeNotifier {
   }
 
   void changeTraceRoute(String traceRoute) {
-    rutaCompleta.typeRoute = traceRoute;
+    rutaCompleta.traceRoute = traceRoute;
     notifyListeners();
   }
 
   void changeDistanceTotal(double distanceTotal) {
     rutaCompleta.distanceRoute = distanceTotal.toInt();
+    notifyListeners();
+  }
+
+  void changeIdUser(String idUser) {
+    rutaCompleta.userID = idUser;
     notifyListeners();
   }
 }

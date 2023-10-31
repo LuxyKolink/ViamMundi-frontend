@@ -7,7 +7,8 @@ import '../../data/services/api.client.dart';
 class UserState extends ChangeNotifier {
   TokenJWTModel? token;
   Exception? error;
-
+  String? idUser;
+  
   Future<bool> loginProvider(String email, String password) async {
     try {
       final tokenModel = await login(email, password);
@@ -39,6 +40,21 @@ class UserState extends ChangeNotifier {
     } catch (e) {
       print("salió");
       token = null;
+      error = e as Exception;
+      notifyListeners();
+      return false;
+    }
+  }
+
+  authAuth(String token) async {
+    try {
+      final idUserR = await authToken(token);
+      idUser = idUserR;
+      error = null;
+      notifyListeners();
+      return true;
+    } catch (e) {
+      idUser = null;
       error = e as Exception;
       notifyListeners();
       return false;

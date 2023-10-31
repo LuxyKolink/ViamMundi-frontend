@@ -5,7 +5,7 @@ import 'package:viammundi_frontend/modules/profile/data/models/dto/dto_image_pro
 import 'package:viammundi_frontend/modules/profile/data/models/token.model.dart';
 
 Future<TokenJWTModel> login(String email, String password) async {
-  final url = Uri.http('192.168.56.1:4000', '/auth/login');
+  final url = Uri.http('192.168.1.10:4000', '/auth/login');
   print({'email': email, 'password': password});
   final response =
       await http.post(url, body: {'email': email, 'password': password});
@@ -19,7 +19,7 @@ Future<TokenJWTModel> login(String email, String password) async {
 
 Future<TokenJWTModel> register(
     String email, String username, String password) async {
-  final url = Uri.http('192.168.56.1:4000', '/auth/register');
+  final url = Uri.http('192.168.1.10:4000', '/auth/register');
   print(url);
   print({'email': email, 'user_name': username, 'password': password});
   final response = await http.post(url,
@@ -42,6 +42,21 @@ Future <imgProfileDTO?> imgProfile(String rutaTotal) async{
     final List<int> bytes = response.bodyBytes;
     print(response.body);
     return imgProfileDTO(imageBytes: Uint8List.fromList(bytes));;
+  } else {
+    print("paso por acá");
+    throw Exception('Failed to register');
+  }
+}
+
+Future <String> authToken(String iduser) async{
+  final url = Uri.http('192.168.1.10:4000', '/auth/auth');
+  print(url);
+  final response = await http.post(url, body: {"tokenJWT":iduser});
+  print(response.statusCode);
+  if (response.statusCode == 201) {
+    Map<String, dynamic> jsonResponse = json.decode(response.body);
+    String userId = jsonResponse['respuesta']['id_user'];
+    return userId;
   } else {
     print("paso por acá");
     throw Exception('Failed to register');
